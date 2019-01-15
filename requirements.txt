@@ -1,0 +1,7 @@
+django
+
+django-debug-toolbar
+
+psycopg2
+
+psycopg2-binary
