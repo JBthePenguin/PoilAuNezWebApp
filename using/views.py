@@ -1,35 +1,53 @@
 from django.shortcuts import render
+from using.models import Actu
+import datetime
 
 
 # VIEWS
 def index(request):
     """ return the home page """
-    return render(request, 'using/index.html')
+    context = {"home_page": "active"}
+    return render(request, 'using/index.html', context)
 
 
 def actus(request):
     """ return the page with actus"""
-    return render(request, 'using/actus.html')
+    actus = Actu.objects.all().order_by("change_date").reverse()
+    context = {
+        "actus_page": "active",
+        "actus": actus
+    }
+    return render(request, 'using/actus.html', context)
 
 
 def galery(request):
     """ return the page with galery"""
-    return render(request, 'using/galery.html')
+    context = {"galery_page": "active"}
+    return render(request, 'using/galery.html', context)
 
 
 def photos(request):
     """ return the page with photos """
-    return render(request, 'using/photos.html')
+    context = {
+        "galery_page": "active",
+        "photos_page": "active"
+    }
+    return render(request, 'using/photos.html', context)
 
 
 def videos(request):
     """ return the page with videos """
-    return render(request, 'using/videos.html')
+    context = {
+        "galery_page": "active",
+        "videos_page": "active"
+    }
+    return render(request, 'using/videos.html', context)
 
 
 def contact(request):
     """ return the page with contact form"""
-    return render(request, 'using/contact.html')
+    context = {"contact_page": "active"}
+    return render(request, 'using/contact.html', context)
 
 
 def mentions(request):

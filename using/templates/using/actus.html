@@ -3,14 +3,47 @@
 {% load static %}
 
 {% block content %}
-<header id="header_index" class="masthead" style="background-image: url({% static 'using/img/home-bg.jpg' %})">
+<header id="header_actus" class="masthead" style="background-image: url({% static 'using/img/home-bg.jpg' %})">
     <div class="container">
-    	<div class="row">
+        <div class="row">
             <div class="col-lg-12 site-heading">
-				I am actus
-			</div>
-		</div>
-	</div>
+                <h1>Actualités</h1>
+                <p class="subheading text-left">Dernièrement ajoutée</p>
+            </div>
+            <!-- CARD -->
+            <div class="card col-lg-12">
+                <img class="card-img-top" src="{{ actus.0.image.url }}">
+                <div class="card-body">
+                    <h4 class="card-title">{{ actus.0.title }}</h4>
+                    <p class="card-text text-left">{{ actus.0.text }}</p>
+                    <p class="card-footer text-right"><small>actualité
+                    {% if actus.0.change_date|date:'d/m/Y/ H:i' == actus.0.creating_date|date:'d/m/Y/ H:i' %} publiée {% else %} modifiée {% endif %} par {{ actus.0.author}} le {{ actus.0.change_date|date:'d/m/Y à H:i' }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
-
+<!--Main Content-->
+<main id="main_actus" class="container">
+    {% for actu in actus %}
+    <div class="row">
+        <div class="card col-md-10">
+            <div class="row ">
+                <div class="col-md-3">
+                    <img class="w-100" src="{{ actu.image.url }}">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-block">
+                        <h2 class="card-title text-center"><span>{{ actu.title }}</span></h2>
+                        <p class="card-text text-center">actualité {% if actu.change_date|date:'d/m/Y/ H:i' == actu.creating_date|date:'d/m/Y/ H:i' %} publiée {% else %} modifiée {% endif %} par {{ actu.author }} le {{ actu.change_date|date:'d/m/Y à H:i' }}</p>
+                        <p class="card-text text-center">{{ actu.text|truncatechars:50 }}<br>
+                            <a href="#" onclick="DisplayActu1();">lire la suite...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</main>
 {% endblock %}

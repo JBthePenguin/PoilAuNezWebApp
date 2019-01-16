@@ -26,10 +26,18 @@ $ source env/bin/activate
 ## Create tables
 Make the migrations:
 ```shell
+(env)$ python manage.py makemigrations
 (env)$ python manage.py migrate
 ```
+## Create a "superuser":
+```shell
+(env)$ python manage.py createsuperuser
+```
+... and now you can login to the admin site : http://127.0.0.1:8000/admin/
+Here you can manage actus.
 ## Start and use the Application**
 ```shell
 (env)$ python manage.py runserver
 ```
 **NOW, with your favorite browser, go to this url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and enjoy to use application.**
+

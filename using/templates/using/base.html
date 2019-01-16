@@ -15,10 +15,6 @@
     <link href="{% static 'using/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- FONT AWESOME -->
     <link href="{% static 'using/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-    <!-- FONT AWESOME -->
-    <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <!-- custom styles -->
     <link href="{% static 'using/css/style.css' %}" rel="stylesheet">
     <!-- Favicon -->
@@ -41,13 +37,13 @@
             <!-- Navigation -->
             <div  id="navigation" class="collapse navbar-collapse col-lg-7">
                 <ul class="navbar-nav row text-center">
-                    <li class="nav-item active col-lg-4"><a href="{% url 'index' %}" class="nav-link">Qui sommes-nous?</a></li>
-                    <li class="nav-item col-lg-2"><a href="{% url 'actus' %}" class="nav-link">Actus</a></li>
-                    <li id="navbarDropdown" class="nav-item dropdown col-lg-3">
+                    <li class="nav-item col-lg-4 {{ home_page }}"><a href="{% url 'index' %}" class="nav-link">Qui sommes-nous?</a></li>
+                    <li class="nav-item col-lg-2 {{ actus_page }}"><a href="{% url 'actus' %}" class="nav-link">Actus</a></li>
+                    <li id="navbarDropdown" class="nav-item dropdown col-lg-3 {{ galery_page }}">
                         <a href="{% url 'galery' %}" class="nav-link dropdown-toggle">Galerie</a>
                         <div class="dropdown-menu dropdown-menu-center text-center" aria-labelledby="navbarDropdown">
-                            <a href="{% url 'photos' %}" class="dropdown-item nav-link">Photos</a>
-                            <a href="{% url 'videos' %}" class="dropdown-item nav-link">Vidéos</a>
+                            <a href="{% url 'photos' %}" class="dropdown-item nav-link {{ photos_page }}">Photos</a>
+                            <a href="{% url 'videos' %}" class="dropdown-item nav-link {{ videos_page }}">Vidéos</a>
                         </div>
                     </li>
                     <li class="nav-item col-lg-3"><a href="{% url 'contact' %}" class="nav-link">Contactez-nous</a></li>

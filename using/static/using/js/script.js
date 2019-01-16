@@ -15,6 +15,7 @@
   });
 })(jQuery);
 
+
 // ACTUS
 function DisplayActu1() {
   $(".subheading").remove();
@@ -31,6 +32,7 @@ function DisplayActu2() {
   $("#header_actus .card p.card-text").replaceWith("<p class='card-text text-left'>La compagnie Poil au nez sera en représentation du 3 au 7 octobre 2018 au Palais des sports de Los Angeles à 20h. Entrée 3$</p>");
   $("#header_actus .card p.card-footer").replaceWith("<p class='card-footer text-right'><small>actualité publiée par Zek le 02/09/18</small></p>");
 }
+
 
 //CAROUSEL
 $('.bs-vertical-slider').carousel({
