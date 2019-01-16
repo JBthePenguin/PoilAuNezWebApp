@@ -496,11 +496,12 @@ main h2 a:hover {
   padding-bottom: 10px;
 }
 
+
 #main_contact a, #add-actu-form a,
 #mod-actu1-form a, #mod-actu2-form a,
 #add-photo-form a, #mod-photo-form a,
 #add-video-form a, #mod-video-form a,
-#display-message a {
+#display-message a, .pag_link {
   color: white;
   border: 2px solid red;
   border-radius:7px;
@@ -510,13 +511,13 @@ main h2 a:hover {
 #mod-actu1-form a:hover, #mod-actu2-form a:hover,
 #add-photo-form a:hover, #mod-photo-form a:hover,
 #add-video-form a:hover, #mod-video-form a:hover,
-#display-message a:hover {
+#display-message a:hover, .pag_link:hover {
   color: #ff9582;
 }
 
 #add-actu-form a, #mod-actu1-form a, #mod-actu2-form a,
-#add-photo-form a, #mod-photo-form a,
-#add-video-form a, #mod-video-form a, #display-message a {
+#add-photo-form a, #mod-photo-form a, #add-video-form a,
+#mod-video-form a, #display-message a {
   margin-bottom: 10px;
 }
 
@@ -626,11 +627,11 @@ main h2 a:hover {
   color: black;
 }
 
-#header_admin_actu table tbody tr td a:link {
+#header_admin_actu table tbody tr td a:link, .pag_link:link {
   text-decoration: none;
 }
 
-#header_admin_actu table tbody tr td a:focus {
+#header_admin_actu table tbody tr td a:focus, {
   outline:0;
 }
 

@@ -17,20 +17,18 @@
 
 
 // ACTUS
-function DisplayActu1() {
+function DisplayActu(img_url, title, text, author, title, creating_date, change_date) {
   $(".subheading").remove();
-  $("#header_actus .card img.card-img-top").replaceWith("<img class='card-img-top' src='img/actu1.png'>");
-  $("#header_actus .card h4.card-title").replaceWith("<h4 class='card-title text-center'><span>Ze magical hysteric tour 2018</span></h4>");
-  $("#header_actus .card p.card-text").replaceWith("<p class='card-text text-left'>Bienvenue au Zekistan où la compagnie Poil au nez propose un spectacle tout public le vendredi 28 décembre 2018 à 16h, dans la salle Paradiso à Sarrancolin. Entrée 4€ pour les adultes et 2€ pour les enfants.</p>");
-  $("#header_actus .card p.card-footer").replaceWith("<p class='card-footer text-right'><small>actualité publiée par Zek le 10/12/18</small></p>");
-}
-
-function DisplayActu2() {
-  $(".subheading").remove();
-  $("#header_actus .card img.card-img-top").replaceWith("<img class='card-img-top' src='img/alapoursuite.png'>");
-  $("#header_actus .card h4.card-title").replaceWith("<h4 class='card-title text-center'><span>A la poursuite d'une histoire</span></h4>");
-  $("#header_actus .card p.card-text").replaceWith("<p class='card-text text-left'>La compagnie Poil au nez sera en représentation du 3 au 7 octobre 2018 au Palais des sports de Los Angeles à 20h. Entrée 3$</p>");
-  $("#header_actus .card p.card-footer").replaceWith("<p class='card-footer text-right'><small>actualité publiée par Zek le 02/09/18</small></p>");
+  $("#header_actus .card img.card-img-top").replaceWith("<img class='card-img-top' src=" + img_url + ">");
+  $("#header_actus .card h4.card-title").text(title);
+  $("#header_actus .card p.card-text").text(text);
+  if (creating_date == change_date) {
+    var word = "publiée";
+  }
+  else {
+    var word = "modifiée";
+  }
+  $("#header_actus .card p.card-footer").html("<small>actualité " + word + " par " + author + " le " + change_date + "</small>");
 }
 
 
