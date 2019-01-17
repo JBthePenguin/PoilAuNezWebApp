@@ -7,3 +7,5 @@ using/__pycache__/
 using/migrations/__pycache__/
 
 uploads/actus/
+
+geckodriver.log
