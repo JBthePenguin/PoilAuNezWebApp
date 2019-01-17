@@ -1,5 +1,9 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+User.objects.filter(password__startswith='bcrypt$$')
 
 
 class BrowseProductTests(StaticLiveServerTestCase):
