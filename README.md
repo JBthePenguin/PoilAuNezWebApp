@@ -51,7 +51,7 @@ postgres@somewhere:~$ exit
 ```
 Run the tests:
 ```shell 
-(env)$ python manage.py test
+(env)$ python manage.py test -v 2
 ```
 If you want to use Chrome, install [ChromeWebDriver](http://chromedriver.chromium.org/downloads) and update in all app's tests.py line 2:
 ```python

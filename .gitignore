@@ -9,3 +9,7 @@ using/migrations/__pycache__/
 uploads/actus/
 
 geckodriver.log
+
+using/actu/__pycache__/
+
+using/actu/migrations/__pycache__/
