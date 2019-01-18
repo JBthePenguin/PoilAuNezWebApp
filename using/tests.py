@@ -143,8 +143,30 @@ class BrowseTests(StaticLiveServerTestCase):
         )
         link_color(nav_links, 4)
 
+    def test_footer(self):
+        """ test for footer"""
+        self.selenium.get(self.live_server_url)
+        divs = self.selenium.find_elements_by_css_selector(
+            ".page-footer .row div"
+        )
+        self.assertEqual(len(divs), 6)
+
     def test_index(self):
         """ test for index page"""
         self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        # header
         header_title = self.selenium.find_element_by_tag_name("h1")
         self.assertEqual(header_title.text, "Qui sommes-nous?")
+        images = self.selenium.find_elements_by_css_selector(
+            "#header_index .container .row .card"
+        )
+        self.assertEqual(len(images), 2)
+        # main
+        divs = self.selenium.find_elements_by_css_selector(
+            "#main_index .row div.mx-auto"
+        )
+        self.assertEqual(len(divs), 5)
+        card_titles = self.selenium.find_elements_by_css_selector(
+            "#main_index .card .card-body .card-title"
+        )
+        self.assertEqual(card_titles[1].text, "A la poursuite d'une histoire")
