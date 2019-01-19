@@ -2,6 +2,8 @@ django
 
 django-debug-toolbar
 
+django-fixture-magic
+
 psycopg2
 
 psycopg2-binary

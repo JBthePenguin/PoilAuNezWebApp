@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class BrowseTests(StaticLiveServerTestCase):
+class BrowseBaseTests(StaticLiveServerTestCase):
     """ Tests for the browsing"""
     @classmethod
     def setUpClass(cls):
@@ -150,6 +150,20 @@ class BrowseTests(StaticLiveServerTestCase):
             ".page-footer .row div"
         )
         self.assertEqual(len(divs), 6)
+
+
+class BrowseIndexTests(StaticLiveServerTestCase):
+    """ Tests for the browsing"""
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.selenium = WebDriver()
+        cls.selenium.implicitly_wait(10)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super().tearDownClass()
 
     def test_index(self):
         """ test for index page"""
