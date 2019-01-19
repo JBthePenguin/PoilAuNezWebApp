@@ -29,7 +29,7 @@ class BrowseActuTests(StaticLiveServerTestCase):
         last_actu_title = self.selenium.find_element_by_css_selector(
             "#header_actus .card .card-body .card-title"
         )
-        self.assertEqual(last_actu_title.text, "tests pagination 4")
+        self.assertEqual(last_actu_title.text, "actu test 6")
         # main part and display
         actu_display_links = self.selenium.find_elements_by_css_selector(
             "#main_actus .card-text a"
@@ -40,14 +40,14 @@ class BrowseActuTests(StaticLiveServerTestCase):
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//img[@class='card-img-top' and @src='/uploads/fixtures/actus/alapoursuite.png']"
+                    "//img[@class='card-img-top' and @src='/uploads/test/display/actu1.png']"
                 )
             )
         )
         display_actu_title = self.selenium.find_element_by_css_selector(
             "#header_actus .card .card-body .card-title"
         )
-        self.assertEqual(display_actu_title.text, "tests pagination 3")
+        self.assertEqual(display_actu_title.text, "actu test 5")
         # pagination
         actu_cards = self.selenium.find_elements_by_css_selector(
             "#main_actus .card"
@@ -61,7 +61,7 @@ class BrowseActuTests(StaticLiveServerTestCase):
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//img[@class='w-100' and @src='/uploads/fixtures/actus/clownference.png']"
+                    "//img[@class='w-100' and @src='/uploads/test/pag/actu1.png']"
                 )
             )
         )

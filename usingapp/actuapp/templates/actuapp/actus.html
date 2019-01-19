@@ -21,7 +21,7 @@
         </div>
     </header>
                 {% else %}
-                    <img class="card-img-top" src="{{ actus.0.image.url }}">
+                    <img class="card-img-top" src="{{ actus.0.image.url }}" alt="image">
                     <div class="card-body">
                         <h4 class="card-title">{{ actus.0.title }}</h4>
                         <p class="card-text text-left">{{ actus.0.text }}</p>
@@ -42,7 +42,7 @@
                 <div class="card col-md-10">
                     <div class="row ">
                         <div class="col-md-3">
-                            <img class="w-100" src="{{ actu.image.url }}">
+                            <img class="w-100" src="{{ actu.image.url }}" alt"image">
                         </div>
                         <div class="col-md-9">
                             <div class="card-block">

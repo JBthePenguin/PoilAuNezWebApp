@@ -1,0 +1,1 @@
+[{"model": "videoapp.video", "pk": 4, "fields": {"title": "Vidéo 1", "video": "no video for tests", "creating_date": "2019-01-19T16:24:57.674Z", "change_date": "2019-01-19T16:24:57.675Z"}}, {"model": "videoapp.video", "pk": 3, "fields": {"title": "Vidéo 2", "video": "no video for tests", "creating_date": "2019-01-19T16:25:37.411Z", "change_date": "2019-01-19T16:25:37.411Z"}}]

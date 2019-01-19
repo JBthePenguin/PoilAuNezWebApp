@@ -5,12 +5,127 @@
 {% block content %}
 <header id="header_galery" class="masthead" style="background-image: url({% static 'usingapp/img/home-bg.jpg' %})">
     <div class="container">
-    	<div class="row">
+        <div class="row">
             <div class="col-lg-12 site-heading">
-				I am galery
-			</div>
-		</div>
-	</div>
+                <h1>Galerie</h1>
+                <p class="subheading text-left">Dernièrement ajoutée dans...</p>
+            </div>
+            <!-- CARD -->
+            <!-- PHOTOS -->
+            <div class="card col-lg-4">
+                <div class="card-body">
+                    <h4 class="card-title text-left">... les photos:</h4>
+                    {% if photos is False %}
+                        <div class="alert alert-warning text-center">
+                            Aucune photo n'est enregistrée.<br>
+                        </div>
+                    </div>
+                    {% else %}                    
+                        <p>{{ photos.0.title }}</p>
+                    </div>
+                    <img class="card-img-bottom" src="{{ photos.0.image.url }}" alt="photo">
+                    {% endif %}
+            </div>
+            <span class="col-lg-2"></span>
+            <!-- VIDEOS -->
+            <div class="card col-lg-6">
+                <div class="card-body">
+                    <h4 class="card-title text-left">... les vidéos:</h4>
+                    {% if videos is False %}
+                        <div class="alert alert-warning">
+                            Aucune vidéo n'est enregistrée.<br>
+                        </div>
+                    </div>
+                    {% else %}                        
+                        <p>{{ videos.0.title }}</p>
+                    </div>
+                    <div id="video-player" class="embed-responsive embed-responsive-16by9">
+                        <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
+                            <source src="{{ videos.0.video.url }}" type="video/mp4" alt="videos">
+                            <p class="alert">
+                                Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
+                            </p>
+                        </video>
+                    </div>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
 </header>
-
+<!--Main Content-->
+<main id="main_galery" class="container">
+    <div class="row">
+        <div class="card col-md-8">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="card-block">
+                        <h2 class="card-title text-center"><a href="{% url 'photos' %}">Visiter la galerie PHOTOS</a></h2>
+                    </div>
+                </div>
+                {% if photos is False %}
+                    <div class="alert alert-warning mx-auto">
+                        Aucune photo n'est enregistrée.<br>
+                    </div>
+                {% else %}
+                    <div class="carousel bs-vertical-slider slide col-md-12" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for photo in photos %}
+                                {% if photo.id == photos.0.id %}
+                                    <div class="carousel-item active">
+                                {% else %}
+                                    <div class="carousel-item">
+                                {% endif %}
+                                    <img class="d-block mx-auto img-fluid" src="{{ photo.image.url }}" alt="photo">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <p>{{ photo.title }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card col-md-8">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="card-block">
+                        <h2 class="card-title text-center"><a href="{% url 'videos' %}">Visiter la galerie VIDEOS</a></h2>
+                    </div>
+                </div>
+                {% if videos is False %}
+                    <div class="alert alert-warning mx-auto">
+                        Aucune vidéo n'est enregistrée.<br>
+                    </div>
+                {% else %}
+                    <div class="carousel bs-vertical-slider slide col-md-12" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for video in videos %}
+                                {% if video.id == videos.0.id %}
+                                    <div class="carousel-item active">
+                                {% else %}
+                                    <div class="carousel-item">
+                                {% endif %}
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
+                                            <source src="{{ video.video.url }}" type="video/mp4" alt="videos">
+                                            <p class="alert">
+                                                Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
+                                            </p>
+                                        </video>
+                                    </div>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <p>{{ video.title }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

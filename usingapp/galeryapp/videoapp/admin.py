@@ -1,3 +1,8 @@
 from django.contrib import admin
+from usingapp.galeryapp.videoapp.models import Video
 
-# Register your models here.
+
+@admin.register(Video)
+class PhotoAdmin(admin.ModelAdmin):
+    search_fields = ('title',)
+    list_display = ('title', 'video', 'creating_date', 'change_date', 'author')

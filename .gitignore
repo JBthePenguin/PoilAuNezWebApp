@@ -1,14 +1,18 @@
+geckodriver.log
+
 env/
+
+uploads/actus/
+
+uploads/photos/
+
+uploads/videos/
 
 poilaunezdjango/__pycache__/
 
 usingapp/__pycache__/
 
 usingapp/migrations/__pycache__/
-
-uploads/actus/
-
-geckodriver.log
 
 usingapp/actuapp/__pycache__/
 
