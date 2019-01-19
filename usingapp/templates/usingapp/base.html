@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Site de la compagnie Poil au nez">
+    <meta name="author" content="JBthePenguin">
+    
+    <title>Poil au nez</title>    
+    
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'usingapp/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link href="{% static 'usingapp/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- custom styles -->
+    <link href="{% static 'usingapp/css/style.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'usingapp/img/fav.png' %}" type="image/x-icon" />     
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav id="NavBar" class="navbar fixed-top navbar-expand-lg navbar-dark container-fluid scrolling-navbar">
+        <div class="row">
+            <!-- Logo and title -->
+            <div class="col-lg-5">
+                <a href="{% url 'index' %}" class="navbar-brand col-sm-12">
+                    <img class="img float-left" src="{% static 'usingapp/img/logo.png' %}" width="14%" alt="logo">Compagnie Poil au Nez<br>Compagnie de clown-théâtre
+                </a>
+                <button class="navbar-toggler col-sm-2" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false">
+                <span class="fa fa-bars fa-2"></span>
+                </button>
+                <span class="ml-auto"></span>
+            </div>
+            <!-- Navigation -->
+            <div  id="navigation" class="collapse navbar-collapse col-lg-7">
+                <ul class="navbar-nav row text-center">
+                    <li class="nav-item col-lg-4 {{ home_page }}"><a href="{% url 'index' %}" class="nav-link">Qui sommes-nous?</a></li>
+                    <li class="nav-item col-lg-2 {{ actus_page }}"><a href="{% url 'actus' %}" class="nav-link">Actus</a></li>
+                    <li id="navbarDropdown" class="nav-item dropdown col-lg-3 {{ galery_page }}">
+                        <a href="{% url 'galery' %}" class="nav-link dropdown-toggle">Galerie</a>
+                        <div class="dropdown-menu dropdown-menu-center text-center" aria-labelledby="navbarDropdown">
+                            <a href="{% url 'photos' %}" class="dropdown-item nav-link {{ photos_page }}">Photos</a>
+                            <a href="{% url 'videos' %}" class="dropdown-item nav-link {{ videos_page }}">Vidéos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item col-lg-3"><a href="{% url 'contact' %}" class="nav-link {{ contact_page }}">Contactez-nous</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <!-- Footer -->
+    <footer class="page-footer container-fluid">
+        <div class="row">
+            <div class="col-lg-3 text-center col-sm-12">
+                <i class="fa fa-home  mr-1"></i>14 r Aulnes, 65250 LA BARTHE DE NESTE
+            </div>
+            <div class="col-lg-2 text-center col-sm-12">
+                <i class="fa fa-envelope  mr-1"></i>compagniepoilaunez@gmail.com
+            </div>
+            <div class="col-lg-2 text-center col-sm-12">
+                <i class="fa fa-phone  mr-1"></i>06 78 44 80 87
+            </div>
+            <div class="col-lg-1 text-center col-sm-12">
+                <a href="https://fr-fr.facebook.com/CompagniePoilauNez/"><i class="fa fa-facebook"></i></a>
+            </div>
+            <div class="col-lg-2 footer-copyright text-center col-sm-12">
+                <a href="{% url 'mentions' %}">Mentions légales</a>
+            </div>
+            <div class="col-lg-2 footer-copyright text-center col-sm-12">
+                ©2019 NoRightReserved:<a href="{% url 'index' %}"> poilaunez.com</a>
+            </div>
+        </div>
+    </footer>
+    <!-- JQuery -->
+    <script src="{% static 'usingapp/jquery/jquery-3.3.1.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'usingapp/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Custom script -->
+    <script src="{% static 'usingapp/js/script.js' %}"></script>
+
+</body>
+
+</html>

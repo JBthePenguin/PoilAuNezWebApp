@@ -2,14 +2,26 @@ env/
 
 poilaunezdjango/__pycache__/
 
-using/__pycache__/
+usingapp/__pycache__/
 
-using/migrations/__pycache__/
+usingapp/migrations/__pycache__/
 
 uploads/actus/
 
 geckodriver.log
 
-using/actu/__pycache__/
+usingapp/actuapp/__pycache__/
 
-using/actu/migrations/__pycache__/
+usingapp/actuapp/migrations/__pycache__/
+
+usingapp/galeryapp/__pycache__/
+
+usingapp/galeryapp/migrations/__pycache__/
+
+usingapp/galeryapp/photoapp/__pycache__/
+
+usingapp/galeryapp/photoapp/migrations/__pycache__/
+
+usingapp/galeryapp/videoapp/__pycache__/
+
+usingapp/galeryapp/videoapp/migrations/__pycache__/

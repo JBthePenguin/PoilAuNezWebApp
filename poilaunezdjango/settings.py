@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'fixture_magic',
-    'using',
-    'using.actu',
+    'usingapp',
+    'usingapp.actuapp',
+    'usingapp.galeryapp',
+    'usingapp.galeryapp.photoapp',
+    'usingapp.galeryapp.videoapp',
 ]
 
 MIDDLEWARE = [
