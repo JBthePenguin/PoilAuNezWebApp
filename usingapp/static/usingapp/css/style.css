@@ -43,6 +43,7 @@ html {
 }
 
 /*NAVBAR*/
+
 .navbar-brand {
   font-family: 'lobster', Arial, sans-serif;
   font-size: 1.15em;
@@ -167,8 +168,6 @@ footer i, .footer-copyright a {
 footer a:focus {
   outline:0;
 }
-
-
 
 /*HEADER*/
 
@@ -467,8 +466,6 @@ main h2 a:hover {
 
 /*CONTACT, ADD ACTU FORM*/
 #contact-form, #add-actu-form, #modify-actu-form  {
-  border: 1px solid black;
-  border-radius:7px;
   padding: 7px;
   margin-bottom: 7px;
 }
@@ -478,7 +475,15 @@ main h2 a:hover {
   border-radius:7px;
   background-color: #d6d6d6;
   color: black;
+  text-indent:5px;  
 }
+
+@media only screen and (max-width: 768px) {
+  #main_contact form textarea, #main_contact form input {
+    max-width: 310px;
+  }
+}
+
 
 #add-actu-form form textarea, #add-actu-form form input,
 #mod-actu1-form form textarea, #mod-actu1-form form input,
@@ -501,7 +506,7 @@ main h2 a:hover {
 }
 
 
-#main_contact a, #add-actu-form a,
+#main_contact button, #add-actu-form a,
 #mod-actu1-form a, #mod-actu2-form a,
 #add-photo-form a, #mod-photo-form a,
 #add-video-form a, #mod-video-form a,
@@ -511,7 +516,7 @@ main h2 a:hover {
   border-radius:7px;
 }
 
-#main_contact a:hover, #add-actu-form a:hover,
+#main_contact button:hover, #add-actu-form a:hover,
 #mod-actu1-form a:hover, #mod-actu2-form a:hover,
 #add-photo-form a:hover, #mod-photo-form a:hover,
 #add-video-form a:hover, #mod-video-form a:hover,
@@ -540,10 +545,6 @@ main h2 a:hover {
   margin-bottom: 10px;
   border: 2px solid red;
   border-radius:7px;
-}
-
-.form-signin input:focus {
-  border: 2px solid red;
 }
 
 .form-signin button {

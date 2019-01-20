@@ -3,6 +3,13 @@ from usingapp.actuapp.models import Actu
 
 
 @admin.register(Actu)
-class ProductAdmin(admin.ModelAdmin):
+class ActuAdmin(admin.ModelAdmin):
     search_fields = ('title',)
-    list_display = ('title', 'text', 'image', 'creating_date', 'change_date', 'author')
+    list_display = (
+        'title',
+        'text',
+        'image',
+        'creating_date',
+        'change_date',
+        'author'
+    )

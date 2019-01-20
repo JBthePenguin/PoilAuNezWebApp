@@ -37,7 +37,7 @@ Make the migrations:
 ```shell
 (env)$ python manage.py runserver
 ```
-NOW, with your favorite browser, go to this url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and for login to the admin site go to http://127.0.0.1:8000/admin/ for managing actus, galery photos and videos.
+NOW, with your favorite browser, go to this url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and for login to the admin site go to http://127.0.0.1:8000/admin/ for managing actus, galery (photos and videos) and messages.
 ### Tests:
 The tests use [selenium](https://www.seleniumhq.org/docs/) and maybe you have to install [GreckoWebdriver](https://github.com/mozilla/geckodriver/releases) to use firefox.
 During the tests, a temporary database is creating, so you need to update the role of application:

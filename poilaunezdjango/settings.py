@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'usingapp.galeryapp',
     'usingapp.galeryapp.photoapp',
     'usingapp.galeryapp.videoapp',
+    'usingapp.contactapp',
 ]
 
 MIDDLEWARE = [

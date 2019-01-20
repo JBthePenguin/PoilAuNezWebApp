@@ -3,6 +3,6 @@ from usingapp.galeryapp.videoapp.models import Video
 
 
 @admin.register(Video)
-class PhotoAdmin(admin.ModelAdmin):
+class VideoAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_display = ('title', 'video', 'creating_date', 'change_date', 'author')
