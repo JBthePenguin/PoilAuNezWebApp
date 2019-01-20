@@ -478,6 +478,10 @@ main h2 a:hover {
   text-indent:5px;  
 }
 
+#refresh-captcha:hover{
+  cursor:  pointer;
+}
+
 @media only screen and (max-width: 768px) {
   #main_contact form textarea, #main_contact form input {
     max-width: 310px;

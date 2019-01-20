@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'usingapp.galeryapp.photoapp',
     'usingapp.galeryapp.videoapp',
     'usingapp.contactapp',
+    'captcha',
 ]
 
 MIDDLEWARE = [

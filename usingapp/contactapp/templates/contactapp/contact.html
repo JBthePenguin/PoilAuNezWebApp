@@ -50,7 +50,14 @@
                 <form id="contact-form" role="form" action="" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button class="btn btn-dark" type="submit">Envoyer</button>
+                    <div class="row">
+                        <div class="col-sm-6 mx-left">
+                            <a id="refresh-captcha"><small>changer captcha</small> <i class="fa fa-refresh"></i></a>
+                        </div>
+                        <div class="col-sm-6 mx-right">
+                            <button class="btn btn-dark" type="submit">Envoyer</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
