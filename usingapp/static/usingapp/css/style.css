@@ -452,7 +452,11 @@ main h2 a:hover {
 }
 
 #header_videos .carousel .carousel-inner .carousel-item div {
-  margin-bottom: 5%;
+  /*margin-bottom: 5%;*/
+}
+
+#header_videos{
+  padding-bottom: 2%;
 }
 
 @media only screen and (min-width: 768px) {

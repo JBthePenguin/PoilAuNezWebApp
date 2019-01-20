@@ -35,7 +35,7 @@ class BrowseGaleryTests(StaticLiveServerTestCase):
         self.assertEqual(card_titles[0].text, "... les photos:")
         self.assertEqual(last_media_titles[1].text, "Festiviel 2018 Test")
         self.assertEqual(card_titles[1].text, "... les vidéos:")
-        self.assertEqual(last_media_titles[2].text, "Vidéo 2")
+        self.assertEqual(last_media_titles[2].text, "Video Test")
         # main
         # photos
         photos = self.selenium.find_elements_by_css_selector(
@@ -46,7 +46,7 @@ class BrowseGaleryTests(StaticLiveServerTestCase):
         videos = self.selenium.find_elements_by_css_selector(
             "#main_galery  .carousel-item video"
         )
-        self.assertEqual(len(videos), 2)
+        self.assertEqual(len(videos), 6)
         # links
         photo_link = self.selenium.find_element_by_link_text(
             "Visiter la galerie PHOTOS"

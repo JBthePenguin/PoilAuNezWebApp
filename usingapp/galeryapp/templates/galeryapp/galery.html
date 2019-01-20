@@ -100,7 +100,7 @@
                         Aucune vidéo n'est enregistrée.<br>
                     </div>
                 {% else %}
-                    <div class="carousel bs-vertical-slider slide col-md-12" data-ride="carousel">
+                    <div id="carousel-video" class="carousel bs-vertical-slider slide col-md-12" data-ride="carousel">
                         <div class="carousel-inner">
                             {% for video in videos %}
                                 {% if video.id == videos.0.id %}

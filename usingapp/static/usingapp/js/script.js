@@ -34,7 +34,15 @@ function DisplayActu(img_url, title, text, author, title, creating_date, change_
 
 //CAROUSEL
 $('.bs-vertical-slider').carousel({
-    interval: 2000
+    interval: 3000
+});
+
+$('.carousel-item .embed-responsive .video-js').on('play', function (e) {
+  $('#carousel-video').carousel('pause');
+});
+
+$('.carousel-item .embed-responsive .video-js').on('stop pause ended', function (e) {
+    $("#carousel-video").carousel();
 });
 
 

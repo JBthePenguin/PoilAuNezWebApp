@@ -4,13 +4,82 @@
 
 {% block content %}
 <header id="header_videos" class="masthead" style="background-image: url({% static 'usingapp/img/home-bg.jpg' %})">
-    <div class="container">
-    	<div class="row">
+<div class="container">
+        <div class="row">
             <div class="col-lg-12 site-heading">
-				I am videos
-			</div>
-		</div>
-	</div>
-</header>
-
+                <h1>Vidéos</h1>
+            </div>
+            {% if videos is False %}
+                <div class="alert alert-warning mx-auto">
+                    Aucune vidéo n'est enregistrée.<br>
+                </div>
+            </div>
+        </div>
+    </header>
+            {% else %}
+                <!-- CAROUSEL -->
+                <div id="carousel-video" class="carousel bs-vertical-slider slide col-md-7 mx-auto" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for video in videos %}
+                            {% if video.id == videos.0.id %}
+                                <div class="carousel-item active">
+                            {% else %}
+                                <div class="carousel-item">
+                            {% endif %}
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
+                                        <source src="{{ video.video.url }}" type="video/mp4">
+                                        <p class="alert">
+                                            Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
+                                        </p>
+                                    </video>
+                                </div>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>{{ video.title }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Main Content-->
+    <main id="main_videos" class="gallery-block cards-gallery">
+        <div class="container">
+            <div class="row">
+                {% for video in videos %}        
+                    <div class="col-md-6">
+                        <div class="card border-0 transform-on-hover">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
+                                    <source src="{{ video.video.url }}" type="video/mp4">
+                                    <p class="alert">
+                                        Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
+                                    </p>
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <h6>{{ video.title }}</h6>
+                                <p class="text-muted card-text">ajoutée le {{ video.change_date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if paginate %}
+                    <nav class="col-md-10 mx-auto" aria-label="...">
+                        <div class="row">
+                            {% if videos.has_previous %}
+                                <a class="pag_link btn-dark col-md-3 mx-auto my-auto text-center" href="?page={{ videos.previous_page_number }}" style="color: white">&larr; Précédent</a>
+                            {% endif %}
+                            {% if videos.has_next %}
+                                <a class="pag_link btn-dark col-md-3 mx-auto my-auto text-center" href="?page={{ videos.next_page_number }}" style="color: white">Suivant &rarr;</a>
+                            {% endif %}
+                        </div>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endif %}
 {% endblock %}

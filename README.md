@@ -29,16 +29,15 @@ Make the migrations:
 (env)$ python manage.py makemigrations
 (env)$ python manage.py migrate
 ```
-## Create a "superuser":
+## Create a "superuser" and :
 ```shell
 (env)$ python manage.py createsuperuser
 ```
-## Start and use the Application**
+## Start and use the Application
 ```shell
 (env)$ python manage.py runserver
 ```
-**NOW, with your favorite browser, go to this url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and enjoy to use application.**
-... and you can login to the admin site : http://127.0.0.1:8000/admin/ for managing actus.
+NOW, with your favorite browser, go to this url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and for login to the admin site go to http://127.0.0.1:8000/admin/ for managing actus, galery photos and videos.
 ### Tests:
 The tests use [selenium](https://www.seleniumhq.org/docs/) and maybe you have to install [GreckoWebdriver](https://github.com/mozilla/geckodriver/releases) to use firefox.
 During the tests, a temporary database is creating, so you need to update the role of application:
