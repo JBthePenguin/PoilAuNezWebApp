@@ -1,0 +1,22 @@
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
+
+# VIEWS
+def index_member(request):
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    return redirect('login')
+
+
+@login_required
+def dashboard(request):
+    """ return the home page """
+    return render(request, 'managingapp/dashboard.html')
+
+
+@login_required
+def logout_manager(request):
+    logout(request)
+    return redirect('login')

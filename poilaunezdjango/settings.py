@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'usingapp.galeryapp.photoapp',
     'usingapp.galeryapp.videoapp',
     'usingapp.contactapp',
+    'managingapp',
     'captcha',
 ]
 
@@ -150,3 +151,8 @@ if 'TRAVIS' in os.environ:
             'PORT': '',
         }
     }
+
+AUTH_USER_MODEL = 'managingapp.Manager'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+# LOGOUT_REDIRECT_URL = ''

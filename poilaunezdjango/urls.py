@@ -23,6 +23,7 @@ from django.urls import path, re_path, include
 urlpatterns = [
     path('', include('usingapp.urls')),
     path('admin/', admin.site.urls),
+    path('manager/', include('managingapp.urls')),
     re_path(r'^captcha/', include('captcha.urls'))
 ]
 
