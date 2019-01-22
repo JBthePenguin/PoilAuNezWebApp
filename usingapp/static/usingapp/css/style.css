@@ -470,7 +470,7 @@ main h2 a:hover {
   margin-bottom: 7px;
 }
 
-#main_contact form textarea, #main_contact form input {
+#main_contact form textarea, #main_contact form input{
   border: 2.5px solid red;
   border-radius:7px;
   background-color: #d6d6d6;
@@ -486,20 +486,6 @@ main h2 a:hover {
   #main_contact form textarea, #main_contact form input {
     max-width: 310px;
   }
-}
-
-
-#add-actu-form form textarea, #add-actu-form form input,
-#mod-actu1-form form textarea, #mod-actu1-form form input,
-#mod-actu2-form form textarea, #mod-actu2-form form input,
-#add-photo-form form textarea, #add-photo-form form input,
-#mod-photo-form form textarea, #mod-photo-form form input,
-#add-video-form form textarea, #add-video-form form input,
-#mod-video-form form textarea, #mod-video-form form input {
-  border: 2.5px solid red;
-  border-radius:7px;
-  background-color: #d6d6d6;
-  color: black;
 }
 
 #main_contact .md-form, #add-actu-form .md-form,
@@ -528,155 +514,5 @@ main h2 a:hover {
   color: #ff9582;
 }
 
-#add-actu-form a, #mod-actu1-form a, #mod-actu2-form a,
-#add-photo-form a, #mod-photo-form a, #add-video-form a,
-#mod-video-form a, #display-message a {
-  margin-bottom: 10px;
-}
 
-#display-message a {
-  margin-top: 10px;
-}
 
-/*ADMIN CONNECT FORM*/
-.form-signin {
-  padding-top: 140px;
-  max-width: 330px;
-}
-
-.form-signin input {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px solid red;
-  border-radius:7px;
-}
-
-.form-signin button {
-  max-width: 200px;
-  border: 2px solid red;
-  border-radius:7px;
-}
-
-.form-signin button:hover {
-  color: #ff9582;
-  border: 2px solid red;
-  border-radius:7px;
-}
-
-/*ADMIN DASHBOARD*/
-
-#main_dashboard a {
-  color: white;
-  border: 2px solid red;
-  border-radius:7px;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-#main_dashboard a:hover {
-  color: #ff9582;
-}
-
-/*ADMIN HEADER*/
-
-#header_admin_actu .site-heading, #header_admin_photos .site-heading {
-  padding-bottom: 10px;
-}
-
-#header_admin_actu h1, #header_admin_photos h1 {
-  color: black;
-  font-size: 50px;
-  font-family: 'aller_italic', Helvetica, Arial, sans-serif;
-}
-
-#header_admin_actu a, #header_admin_photos a {
-  color: red;
-}
-
-#header_admin_actu .btn, #header_admin_photos .btn {
-  color: white;
-  border: 2px solid red;
-  border-radius:7px;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-#header_admin_actu .btn:hover, #header_admin_photos .btn:hover {
-  color: #ff9582;
-}
-
-#header_admin_actu .card img {
-  margin-bottom: 5px;
-}
-
-#header_admin_photos .card img {
-  margin: 5px;
-  max-width: 200px;
-}
-
-#header_admin_photos .card {
-  border-radius: 0px;
-}
-
-#header_admin_photos .card .card-body {
-  margin: 5px;
-}
-
-#header_admin_photos .card .card-body p {
-  font-size: 14px;
-  margin-bottom: 0px;
-}
-
-#header_admin_photos .card a {
-  font-size: 14px;
-  padding-bottom: 5px;
-}
-
-#header_admin_actu table tbody tr td a {
-  color: black;
-}
-
-#header_admin_actu table tbody tr td a:link, .pag_link:link {
-  text-decoration: none;
-}
-
-#header_admin_actu table tbody tr td a:focus, {
-  outline:0;
-}
-
-#header_admin_actu .fa {
-  color: red;
-}
-
-/*ADMIN MAIN*/
-#add-actu-form, #mod-actu1-form, #mod-actu2-form, #add-photo-form,
-#mod-photo-form, #add-video-form, #mod-video-form, #display-message {
-  display: none;
-}
-
-/*DROPZONE*/
-.upload-drop-zone {
-  height: 250px;
-  border-width: 2px;
-  margin-bottom: 20px;
-}
-
-.upload-drop-zone {
-  color: black;
-  border-style: dashed;
-  border-color: red;
-  line-height: 200px;
-  text-align: center
-}
-
-.upload-drop-zone.drop {
-  color: #222;
-  border-color: black;
-}
-
-#head-message, #text-message {
-  border: 1px solid red;
-  border-radius:7px;
-  margin-bottom: 5px;
-  background-color: #d1d0d9;
-}

@@ -4,6 +4,8 @@ django-debug-toolbar
 
 django-fixture-magic
 
+django-simple-captcha
+
 psycopg2
 
 psycopg2-binary
@@ -11,5 +13,3 @@ psycopg2-binary
 Pillow
 
 selenium
-
-django-simple-captcha

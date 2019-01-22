@@ -9,7 +9,14 @@
             <form class="form-signin mx-auto" method="post">
                 {% csrf_token %}
     			{{ form.as_p }}
-                <button class="btn btn-lg btn-dark btn-block mx-auto" type="submit">Se connecter</button>
+                <div class="row">
+                        <div class="col-sm-6 mx-left">
+                            <a id="refresh-captcha"><small>changer captcha</small> <i class="fa fa-refresh"></i></a>
+                        </div>
+                        <div class="col-sm-6 mx-right">
+                            <button class="btn btn-dark" type="submit">Se connecter</button>
+                        </div>
+                    </div>
             </form>
         </div>
     </div>

@@ -1,0 +1,21 @@
+{% extends 'managingapp/base_manager.html' %}
+
+{% load static %}
+
+{% block content %}
+<header id="header_manager_photos" class="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 site-heading">
+                <h1>Administration des photos</h1>
+            </div>
+            <div class="col-lg-6 text-center">
+                <a href="#add-photo-form" class="btn btn-dark" onclick="AddPhoto();">Ajouter une photo</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <a class="btn btn-dark" href="{% url 'photos' %}" onclick="window.open(this.href);  return false;">Visualiser les photos sur le site</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

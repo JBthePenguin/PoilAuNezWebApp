@@ -3,27 +3,26 @@
 {% load static %}
 
 {% block content %}
-<header id="header_admin_actu" class="masthead">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 site-heading">
-                    <h1>Tableau de bord</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main id="main_dashboard" class="container text-center">
+<header id="header_dashboard" class="masthead">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <a class="btn btn-dark" href="#">Adminstration des actualités</a>
-            </div>
-            <div class="col-lg-10 mx-auto">
-                <a class="btn btn-dark" href="#">Adminstration de la galerie</a>
-            </div>
-            <div class="col-lg-10 mx-auto">
-                <a class="btn btn-dark" href="#">Boîte à messages</a>
+            <div class="col-lg-12 site-heading">
+                <h1>Tableau de bord</h1>
             </div>
         </div>
-    </main>
-
+    </div>
+</header>
+<main id="main_dashboard" class="container text-center">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <a class="btn btn-dark" href="{% url 'actus_manager' %}">Adminstration des actualités</a>
+        </div>
+        <div class="col-lg-10 mx-auto">
+            <a class="btn btn-dark" href="{% url 'galery_manager' %}">Adminstration de la galerie</a>
+        </div>
+        <div class="col-lg-10 mx-auto">
+            <a class="btn btn-dark" href="{% url 'message_manager' %}">Boîte à messages</a>
+        </div>
+    </div>
+</main>
 {% endblock %}
