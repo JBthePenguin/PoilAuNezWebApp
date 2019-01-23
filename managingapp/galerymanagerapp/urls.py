@@ -17,11 +17,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.index_member, name='index_member'),
-    path('login/', views.ManagerLoginView.as_view(), name='login'),
-    path('logout/', views.logout_manager, name='logout'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    path('actus/', include('managingapp.actumanagerapp.urls')),
-    path('galery/', include('managingapp.galerymanagerapp.urls')),
-    path('message/', include('managingapp.messagemanagerapp.urls')),
+    path('', views.galery_manager, name='galery_manager'),
+    path('photos/', include(
+        'managingapp.galerymanagerapp.photomanagerapp.urls')),
+    path('videos/', include(
+        'managingapp.galerymanagerapp.videomanagerapp.urls')),
 ]

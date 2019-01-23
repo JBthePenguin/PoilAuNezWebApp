@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'usingapp.galeryapp.videoapp',
     'usingapp.contactapp',
     'managingapp',
+    'managingapp.actumanagerapp',
+    'managingapp.galerymanagerapp',
+    'managingapp.galerymanagerapp.photomanagerapp',
+    'managingapp.galerymanagerapp.videomanagerapp',
+    'managingapp.messagemanagerapp',
     'captcha',
 ]
 

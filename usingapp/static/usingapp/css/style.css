@@ -465,7 +465,7 @@ main h2 a:hover {
 }
 
 /*CONTACT, ADD ACTU FORM*/
-#contact-form, #add-actu-form, #modify-actu-form  {
+#contact-form {
   padding: 7px;
   margin-bottom: 7px;
 }
@@ -488,31 +488,17 @@ main h2 a:hover {
   }
 }
 
-#main_contact .md-form, #add-actu-form .md-form,
-#mod-actu1-form .md-form, #mod-actu2-form .md-form,
-#add-photo-form .md-form, #mod-photo-form .md-form,
-#add-video-form .md-form, #mod-video-form .md-form {
+#main_contact .md-form{
   padding-bottom: 10px;
 }
 
 
-#main_contact button, #add-actu-form a,
-#mod-actu1-form a, #mod-actu2-form a,
-#add-photo-form a, #mod-photo-form a,
-#add-video-form a, #mod-video-form a,
-#display-message a, .pag_link {
+#main_contact button, .pag_link {
   color: white;
   border: 2px solid red;
   border-radius:7px;
 }
 
-#main_contact button:hover, #add-actu-form a:hover,
-#mod-actu1-form a:hover, #mod-actu2-form a:hover,
-#add-photo-form a:hover, #mod-photo-form a:hover,
-#add-video-form a:hover, #mod-video-form a:hover,
-#display-message a:hover, .pag_link:hover {
+#main_contact button:hover, .pag_link:hover {
   color: #ff9582;
 }
-
-
-

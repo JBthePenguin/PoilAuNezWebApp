@@ -1,0 +1,91 @@
+{% extends 'managingapp/base_manager.html' %}
+
+{% load static %}
+
+{% block content %}
+<header id="header_manager_actus" class="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 site-heading">
+                <h1>Administration des actus</h1>
+            </div>
+            <!-- ajax request for display add form -->
+            <div class="col-lg-6 text-center">
+                <a class="btn btn-dark" onclick='DisplayForm("add", "{{ csrf_token }}");'>Ajouter une actualité</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <a class="btn btn-dark" href="{% url 'actus' %}" onclick="window.open(this.href);  return false;">Visualiser les actualités sur le site</a>
+            </div>
+        </div>
+        {% if actus is False %}
+            <div class="row">
+                <div class="alert alert-warning mx-auto">
+                    Aucune actualité n'est enregistrée.<br>
+                </div>
+            </div>
+        {% else %}
+            {% for actu in actus %}
+                <div class="row">
+                    <div class="card col-md-12 text-center">
+                        <div class="row ">
+                            <div class="col-md-3">
+                                <img class="w-50" src="{{ actu.image.url }}">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card-block">
+                                    <h2 class="card-title text-center"><span>{{ actu.title }}</span></h2>
+                                    <p class="card-text text-center">
+                                        actualité {% if actu.change_date|date:'d/m/Y/ H:i' == actu.creating_date|date:'d/m/Y/ H:i' %} publiée {% else %} modifiée {% endif %} par {{ actu.author }} <small>le {{ actu.change_date }}</small>
+                                    </p>
+                                    <p class="card-text text-center">
+                                    {{ actu.text|truncatechars:50 }}
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-lg-6 text-center">
+                                            <a href="#mod-actu-form" onclick='DisplayForm("{{ actu.id }}", "{{ csrf_token }}");'>Modifier</a>
+                                        </div>
+                                        <div class="col-lg-6 text-center">
+                                            <a href="#" onclick='DeleteConfirm({{ actu.id }});'>Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if paginate %}
+                <nav class="col-md-10 mx-auto" aria-label="...">
+                    <div class="row">
+                        {% if actus.has_previous %}
+                            <a class="pag_link btn-dark col-md-2 mx-auto my-auto text-center" href="?page={{ actus.previous_page_number }}">&larr; Précédent</a>
+                        {% endif %}
+                        {% if actus.has_next %}
+                            <a class="pag_link btn-dark col-md-2 mx-auto my-auto text-center" href="?page={{ actus.next_page_number }}">Suivant &rarr;</a>
+                        {% endif %}
+                    </div>
+                </nav>
+            {% endif %}
+        {% endif %}
+    </div>
+</header>
+<main id="form-part" class="container">
+    <!--Form add or modify actu-->
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form id="add-actu-form" role="form" action="" enctype="multipart/form-data" method="post">                   
+                {% csrf_token %}
+                <span id="form-ajax"></span>
+                <div class="row">
+                    <div class="col-lg-6 text-center">
+                        <button id="btn-form-add-mod" class="btn btn-dark" type="submit"></button>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <button id="btn-form-cancel" class="btn btn-dark" onclick="$('#form-part').hide();">Annuler</button>
+                    </div>
+                </div>                    
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

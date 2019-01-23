@@ -60,6 +60,9 @@
   color: red;
 }
 
+#header_manager_actus .pag_link, #header_manager_message .pag_link,
+#header_manager_photos .pag_link, #header_manager_videos .pag_link,
+
 #header_manager_actus .btn, #header_manager_galery .btn,
 #header_manager_photos .btn, #header_manager_videos .btn,
 #header_manager_message .btn {
@@ -123,13 +126,41 @@
 }
 
 /*ADMIN MAIN*/
-#add-actu-form, #mod-actu1-form, #mod-actu2-form, #add-photo-form,
+#add-actu-form, #mod-actu-form, #add-photo-form,
 #mod-photo-form, #add-video-form, #mod-video-form, #display-message {
-  display: none;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#add-actu-form button, #mod-actu-form button, #add-photo-form button,
+#mod-photo-form button, #add-video-form button, #mod-video-form button,
+#display-message button {
+  color: white;
+  border: 2px solid red;
+  border-radius:7px;
+  border-color: red;
+}
+
+#add-actu-form button:hover, #mod-actu-form button:hover,
+#add-photo-form button:hover, #mod-photo-form button:hover,
+#add-video-form button:hover, #mod-video-form button:hover,
+#display-message button:hover {
+  color: #ff9582;
+}
+
+#add-actu-form, #mod-actu-form {
+  background-color: #898989;
+  border: 1px solid black;
+  border-radius:7px;
+  margin-top: 2%;
+  margin-bottom: 7px;
+  padding: 7px;
 }
 
 /*DROPZONE*/
 .upload-drop-zone {
+  background-color: white;
   height: 250px;
   border-width: 2px;
   margin-bottom: 20px;
@@ -156,9 +187,8 @@
 }
 
 /*FORM*/
-#add-actu-form form textarea, #add-actu-form form input,
-#mod-actu1-form form textarea, #mod-actu1-form form input,
-#mod-actu2-form form textarea, #mod-actu2-form form input,
+#add-actu-form textarea, #add-actu-form input,
+#mod-actu-form form textarea, #mod-actu-form form input,
 #add-photo-form form textarea, #add-photo-form form input,
 #mod-photo-form form textarea, #mod-photo-form form input,
 #add-video-form form textarea, #add-video-form form input,
@@ -167,15 +197,9 @@
   border-radius:7px;
   background-color: #d6d6d6;
   color: black;
+  text-indent: 5px;
 }
 
-/*LINKS*/
-#add-actu-form a, #mod-actu1-form a, #mod-actu2-form a,
-#add-photo-form a, #mod-photo-form a, #add-video-form a,
-#mod-video-form a, #display-message a {
-  margin-bottom: 10px;
-}
-
-#display-message a {
-  margin-top: 10px;
+#add-actu-form #id_image {
+  text-indent: 0px;
 }

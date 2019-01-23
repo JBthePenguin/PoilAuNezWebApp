@@ -32,33 +32,3 @@ def dashboard(request):
 def logout_manager(request):
     logout(request)
     return redirect('login')
-
-
-@login_required
-def actus_manager(request):
-    """ return the home page """
-    return render(request, 'managingapp/actus_manager.html')
-
-
-@login_required
-def galery_manager(request):
-    """ return the home page """
-    return render(request, 'managingapp/galery_manager.html')
-
-
-@login_required
-def photos_manager(request):
-    """ return the home page """
-    return render(request, 'managingapp/photos_manager.html')
-
-
-@login_required
-def videos_manager(request):
-    """ return the home page """
-    return render(request, 'managingapp/videos_manager.html')
-
-
-@login_required
-def message_manager(request):
-    """ return the home page """
-    return render(request, 'managingapp/message_manager.html')

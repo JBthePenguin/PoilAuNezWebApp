@@ -37,3 +37,23 @@ usingapp/contactapp/migrations/__pycache__/
 managingapp/__pycache__/
 
 managingapp/migrations/__pycache__/
+
+managingapp/actumanagerapp/__pycache__/
+
+managingapp/actumanagerapp/migrations/__pycache__/
+
+managingapp/galerymanagerapp/__pycache__/
+
+managingapp/galerymanagerapp/migrations/__pycache__/
+
+managingapp/galerymanagerapp/photomanagerapp/__pycache__/
+
+managingapp/galerymanagerapp/photomanagerapp/migrations/__pycache__/
+
+managingapp/galerymanagerapp/videomanagerapp/__pycache__/
+
+managingapp/galerymanagerapp/videomanagerapp/migrations/__pycache__/
+
+managingapp/messagemanagerapp/__pycache__/
+
+managingapp/messagemanagerapp/migrations/__pycache__/
