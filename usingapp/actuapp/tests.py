@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BrowseActuTests(StaticLiveServerTestCase):
     """ Tests for the browsing"""
-    fixtures = ['actu_fixtures.json']
+    fixtures = ['actu_fixtures.json', 'manager_fixtures.json']
 
     @classmethod
     def setUpClass(cls):
