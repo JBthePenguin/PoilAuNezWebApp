@@ -1,48 +1,35 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from poilaunezdjango.browser_selenium import Browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from captcha.conf import settings
 
 
-def login(test_class):
+def login(browser):
     """ function for login at the begining of a class test"""
-    test_class.selenium.get('%s%s' % (test_class.live_server_url, '/manager/'))
+    browser.selenium.get('%s%s' % (browser.live_server_url, '/manager/'))
     # form
-    test_class.selenium.find_element_by_id("id_username").send_keys(
+    browser.selenium.find_element_by_id("id_username").send_keys(
         "testmanager")
-    test_class.selenium.find_element_by_id("id_password").send_keys(
+    browser.selenium.find_element_by_id("id_password").send_keys(
         "test2test2")
     settings.CAPTCHA_TEST_MODE = True
-    test_class.selenium.find_element_by_id("id_captcha_1").send_keys("PASSED")
-    test_class.selenium.find_element_by_css_selector(
+    browser.selenium.find_element_by_id("id_captcha_1").send_keys("PASSED")
+    browser.selenium.find_element_by_css_selector(
         '.form-signin button').click()
-    wait = WebDriverWait(test_class.selenium, 10)
+    wait = WebDriverWait(browser.selenium, 10)
     wait.until(EC.presence_of_element_located((By.ID, "header_dashboard")))
 
 
-def logout(class_test):
+def logout(browser):
     """ function for logout at the end of a class test"""
-    class_test.selenium.find_element_by_class_name("fa-sign-out").click()
-    wait = WebDriverWait(class_test.selenium, 10)
+    browser.selenium.find_element_by_class_name("fa-sign-out").click()
+    wait = WebDriverWait(browser.selenium, 10)
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "form-signin")))
 
 
-class ManagerLoginTests(StaticLiveServerTestCase):
+class ManagerLoginTests(Browser):
     """ Tests for the manager login and logout"""
-    fixtures = ["manager_fixtures.json"]
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(10)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.selenium.quit()
-        super().tearDownClass()
 
     def test_login_logout(self):
         """ test for login form and logout button"""
@@ -65,20 +52,8 @@ class ManagerLoginTests(StaticLiveServerTestCase):
         self.assertEqual(len(divs), 2)
 
 
-class BrowseManagerTests(StaticLiveServerTestCase):
+class BrowseManagerTests(Browser):
     """ Tests for the manager login and logout"""
-    fixtures = ["manager_fixtures.json"]
-
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(10)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.selenium.quit()
-        super().tearDownClass()
 
     def test_navbar(self):
         """ test for the navbar manager """

@@ -1,23 +1,12 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from poilaunezdjango.browser_selenium import Browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from captcha.conf import settings
 
 
-class BrowseContactTests(StaticLiveServerTestCase):
+class BrowseContactTests(Browser):
     """ Tests for the browsing"""
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(10)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.selenium.quit()
-        super().tearDownClass()
 
     def test_contact(self):
         """ test for contact page"""

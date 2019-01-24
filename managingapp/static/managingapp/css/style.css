@@ -133,6 +133,10 @@
   margin-bottom: 10px;
 }
 
+#form-ajax a {
+  color: red;
+}
+
 #add-actu-form button, #mod-actu-form button, #add-photo-form button,
 #mod-photo-form button, #add-video-form button, #mod-video-form button,
 #display-message button {

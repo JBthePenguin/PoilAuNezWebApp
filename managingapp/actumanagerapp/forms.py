@@ -12,4 +12,3 @@ class ActuForm(forms.ModelForm):
         super(ActuForm, self).__init__(*args, **kwargs)
         self.fields['title'].label = "Titre"
         self.fields['text'].label = "Texte"
-        # self.fields['id'].widget = forms.HiddenInput()

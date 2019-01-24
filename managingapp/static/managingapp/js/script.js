@@ -32,7 +32,7 @@ function DisplayForm(actu_id, csrf_token) {
 }
 
 function DeleteConfirm(actu_id) {
-    r = confirm("Supprimer")
+    r = confirm("Confirmer")
     if (r == true) {
         url = "/manager/actus/delete_actu/" + actu_id;
         $.get(url, function(data){
