@@ -10,12 +10,78 @@
                 <h1>Administration des photos</h1>
             </div>
             <div class="col-lg-6 text-center">
-                <a href="#add-photo-form" class="btn btn-dark" onclick="AddPhoto();">Ajouter une photo</a>
+                <a class="btn btn-dark" onclick='DisplayForm("/manager/galery/photos/", "add", "{{ csrf_token }}");'>Ajouter une photo</a>
             </div>
             <div class="col-lg-6 text-center">
                 <a class="btn btn-dark" href="{% url 'photos' %}" onclick="window.open(this.href);  return false;">Visualiser les photos sur le site</a>
             </div>
         </div>
+        {% if photos is False %}
+            <div class="row">
+                <div class="alert alert-warning mx-auto">
+                Aucune photo n'est enregistrée.<br>
+                </div>
+            </div>
+        {% else %}
+            <div class="gallery-block cards-gallery">
+                <div class="container">
+                    <div class="row text-center">
+                        {% for photo in photos %}        
+                            <div class="col-md-4 col-lg-3">
+                                <div class="card border-0 transform-on-hover">
+                                    <a class="lightbox" href="{{ photo.image.url }}">
+                                        <img src="{{ photo.image.url }}" alt="Card Image" class="card-img-top">
+                                    </a>
+                                    <div class="card-body">
+                                        <h6>{{ photo.title }}</h6>
+                                        <p class="text-muted card-text">ajoutée le {{ photo.change_date }}</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-lg-7 text-center">
+                                            <a href="#" onclick='DisplayForm("/manager/galery/photos/", "{{ photo.id }}", "{{ csrf_token }}");'>Modifier le titre</a>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <a href="#" onclick='DeleteConfirm("galery/photos", {{ photo.id }});'>Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% if paginate %}
+                            <nav class="col-md-10 mx-auto" aria-label="...">
+                                <div class="row">
+                                    {% if photos.has_previous %}
+                                        <a class="pag_link btn-dark col-md-3 mx-auto my-auto text-center" href="?page={{ photos.previous_page_number }}" style="color: white">&larr; Précédent</a>
+                                    {% endif %}
+                                    {% if photos.has_next %}
+                                        <a class="pag_link btn-dark col-md-3 mx-auto my-auto text-center" href="?page={{ photos.next_page_number }}" style="color: white">Suivant &rarr;</a>
+                                    {% endif %}
+                                </div>
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </header>
+<main id="form-part" class="container">
+    <!--Form add or modify actu-->
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form id="add-mod-form" role="form" action="" enctype="multipart/form-data" method="post">                   
+                {% csrf_token %}
+                <span id="form-ajax"></span>
+                <div class="row">
+                    <div class="col-lg-6 text-center">
+                        <button id="btn-form-add-mod" class="btn btn-dark" type="submit"></button>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <button id="btn-form-cancel" class="btn btn-dark" onclick="$('#form-part').hide();">Annuler</button>
+                    </div>
+                </div>                    
+            </form>
+        </div>
+    </div>
+</main>
 {% endblock %}

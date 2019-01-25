@@ -9,7 +9,7 @@ import time
 class ManageActuTests(Browser):
     """ Tests for manage Actu, add update delete"""
 
-    def test_manage_actus_header(self):
+    def test_manage_actus(self):
         """ test for manager actus page"""
         login(self)
         self.selenium.get('%s%s' % (self.live_server_url, '/manager/actus/'))
@@ -18,6 +18,17 @@ class ManageActuTests(Browser):
         self.assertEqual(header_title.text, "Administration des actus")
         cards = self.selenium.find_elements_by_class_name('card')
         self.assertEqual(len(cards), 3)
+        # link for visit the actus page on the site
+        self.selenium.find_element_by_link_text(
+            "Visualiser les actualités sur le site").click()
+        wait = WebDriverWait(self.selenium, 10)
+        wait.until(EC.number_of_windows_to_be(2))
+        default_handle = self.selenium.current_window_handle
+        self.selenium.switch_to_window(self.selenium.window_handles[1])
+        header_title = self.selenium.find_element_by_tag_name("h1")
+        self.assertEqual(header_title.text, "Actualités")
+        self.selenium.close()
+        self.selenium.switch_to_window(default_handle)
         # add actu with form
         self.selenium.find_element_by_link_text(
             'Ajouter une actualité').click()
@@ -50,7 +61,6 @@ class ManageActuTests(Browser):
         delete_links[1].click()
         alert = self.selenium.switch_to_alert()
         alert.accept()
-        wait = WebDriverWait(self.selenium, 10)
         wait.until(EC.alert_is_present())
         alert = self.selenium.switch_to_alert()
         alert.accept()

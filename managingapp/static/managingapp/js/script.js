@@ -1,19 +1,18 @@
 $('#form-part').hide();
 
 // Ajax request to choose the good form 
-function DisplayForm(actu_id, csrf_token) {
+function DisplayForm(url, object_id, csrf_token) {
     $.ajax({
         type: 'POST',
-        url: '/manager/actus/',
+        url: url,
         data: {
-            'delete': false,
-            'actu_id': actu_id,
+            'object_id': object_id,
             'csrfmiddlewaretoken': csrf_token
         },
         success: function (data) {
             // append form to template html
             $('#form-ajax').html(data);
-            if (actu_id == 'add') {
+            if (object_id == 'add') {
                 $('#btn-form-add-mod').html('Ajouter');
             }
             else {
@@ -31,10 +30,10 @@ function DisplayForm(actu_id, csrf_token) {
     });
 }
 
-function DeleteConfirm(actu_id) {
+function DeleteConfirm(kind, object_id) {
     r = confirm("Confirmer")
     if (r == true) {
-        url = "/manager/actus/delete_actu/" + actu_id;
+        url = "/manager/" + kind + "/delete/" + object_id;
         $.get(url, function(data){
             alert(data);
             location.reload();

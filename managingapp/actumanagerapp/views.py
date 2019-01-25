@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from usingapp.actuapp.models import Actu
 from django.contrib.auth.decorators import login_required
-from managingapp.actumanagerapp.forms import ActuForm
+from managingapp.actumanagerapp.forms import ActuForm, return_form
 from managingapp.db_request import actu_request
 
 
@@ -14,18 +14,7 @@ def actus_manager(request):
     if request.method == 'POST':
         if request.is_ajax():
             # response with add or modify form
-            actu_id = request.POST.get('actu_id')
-            if actu_id == 'add':
-                form = ActuForm()
-            else:
-                actu = Actu.objects.get(pk=int(actu_id))
-                form = ActuForm(instance=actu)
-            # add hidden input to keep id for modify form
-            hidden_input = "".join([
-                "<input type='hidden' ",
-                "name='actu_id' value='",
-                str(actu_id), "' />"
-            ])
+            form, hidden_input = return_form(request)
             return HttpResponse(form.as_p() + hidden_input)
         # save and modify actu with form model
         actu_form = ActuForm(request.POST or None, request.FILES or None)
@@ -41,6 +30,7 @@ def actus_manager(request):
             # update actu
             actu_request.update(request, actu_form, actu_id)
             return redirect('actus_manager')
+    # GET request
     actus = Actu.objects.all().order_by("change_date").reverse()
     # pagination for header with actus
     if actus.count() == 0:

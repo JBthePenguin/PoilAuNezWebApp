@@ -126,7 +126,7 @@
 }
 
 /*ADMIN MAIN*/
-#add-actu-form, #mod-actu-form, #add-photo-form,
+#add-mod-form, #mod-actu-form, #add-photo-form,
 #mod-photo-form, #add-video-form, #mod-video-form, #display-message {
   padding-bottom: 10px;
   margin-top: 10px;
@@ -137,7 +137,7 @@
   color: red;
 }
 
-#add-actu-form button, #mod-actu-form button, #add-photo-form button,
+#add-mod-form button, #mod-actu-form button, #add-photo-form button,
 #mod-photo-form button, #add-video-form button, #mod-video-form button,
 #display-message button {
   color: white;
@@ -146,14 +146,14 @@
   border-color: red;
 }
 
-#add-actu-form button:hover, #mod-actu-form button:hover,
+#add-mod-form button:hover, #mod-actu-form button:hover,
 #add-photo-form button:hover, #mod-photo-form button:hover,
 #add-video-form button:hover, #mod-video-form button:hover,
 #display-message button:hover {
   color: #ff9582;
 }
 
-#add-actu-form, #mod-actu-form {
+#add-mod-form, #mod-actu-form {
   background-color: #898989;
   border: 1px solid black;
   border-radius:7px;
@@ -191,7 +191,7 @@
 }
 
 /*FORM*/
-#add-actu-form textarea, #add-actu-form input,
+#add-mod-form textarea, #add-mod-form input,
 #mod-actu-form form textarea, #mod-actu-form form input,
 #add-photo-form form textarea, #add-photo-form form input,
 #mod-photo-form form textarea, #mod-photo-form form input,
@@ -204,6 +204,6 @@
   text-indent: 5px;
 }
 
-#add-actu-form #id_image {
+#add-mod-form #id_image {
   text-indent: 0px;
 }

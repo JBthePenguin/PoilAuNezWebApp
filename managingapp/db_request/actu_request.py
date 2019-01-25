@@ -18,7 +18,7 @@ def save(request, form):
 def update(request, form, actu_id):
     """ update actu """
     try:
-        actu_db = Actu.objects.get(pk=actu_id)
+        actu = Actu.objects.get(pk=actu_id)
     except KeyError:
         pass
     else:
@@ -30,20 +30,21 @@ def update(request, form, actu_id):
             new_image = default_storage.save(
                 "".join(["actus/", form_image.name]),
                 form_image)
-            default_storage.delete(actu_db.image)
-            actu_db.image = new_image
+            default_storage.delete(actu.image)
+            actu.image = new_image
             change_field = True
-        if actu_db.title != form.instance.title:
+        if actu.title != form.instance.title:
             # title
-            actu_db.title = form.instance.title
+            actu.title = form.instance.title
             change_field = True
-        if actu_db.text != form.instance.text:
+        if actu.text != form.instance.text:
             # text
-            actu_db.text = form.instance.text
+            actu.text = form.instance.text
             change_field = True
         if change_field is True:
-            actu_db.change_date = timezone.now()
-            actu_db.save()
+            actu.change_date = timezone.now()
+            actu.author = request.user
+            actu.save()
 
 
 @login_required

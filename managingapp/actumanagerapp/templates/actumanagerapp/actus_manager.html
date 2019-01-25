@@ -11,7 +11,7 @@
             </div>
             <!-- ajax request for display add form -->
             <div class="col-lg-6 text-center">
-                <a class="btn btn-dark" onclick='DisplayForm("add", "{{ csrf_token }}");'>Ajouter une actualité</a>
+                <a class="btn btn-dark" onclick='DisplayForm("/manager/actus/", "add", "{{ csrf_token }}");'>Ajouter une actualité</a>
             </div>
             <div class="col-lg-6 text-center">
                 <a class="btn btn-dark" href="{% url 'actus' %}" onclick="window.open(this.href);  return false;">Visualiser les actualités sur le site</a>
@@ -42,10 +42,10 @@
                                     </p>
                                     <div class="row">
                                         <div class="col-lg-6 text-center">
-                                            <a href="#mod-actu-form" onclick='DisplayForm("{{ actu.id }}", "{{ csrf_token }}");'>Modifier</a>
+                                            <a href="#" onclick='DisplayForm("/manager/actus/", "{{ actu.id }}", "{{ csrf_token }}");'>Modifier</a>
                                         </div>
                                         <div class="col-lg-6 text-center">
-                                            <a href="#" onclick='DeleteConfirm({{ actu.id }});'>Supprimer</a>
+                                            <a href="#" onclick='DeleteConfirm("actus", {{ actu.id }});'>Supprimer</a>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
     <!--Form add or modify actu-->
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <form id="add-actu-form" role="form" action="" enctype="multipart/form-data" method="post">                   
+            <form id="add-mod-form" role="form" action="" enctype="multipart/form-data" method="post">                   
                 {% csrf_token %}
                 <span id="form-ajax"></span>
                 <div class="row">

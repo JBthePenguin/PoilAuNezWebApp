@@ -29,7 +29,7 @@ Make the migrations:
 (env)$ python manage.py makemigrations
 (env)$ python manage.py migrate
 ```
-## Create a "superuser" and :
+## Create a "superuser"
 ```shell
 (env)$ python manage.py createsuperuser
 ```

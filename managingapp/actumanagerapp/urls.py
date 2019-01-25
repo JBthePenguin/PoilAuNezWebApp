@@ -19,6 +19,6 @@ from . import views
 urlpatterns = [
     path('', views.actus_manager, name='actus_manager'),
     re_path(
-        r'^delete_actu/(?P<pk>\d+)/$',
+        r'^delete/(?P<pk>\d+)/$',
         views.delete_actu, name='delete_actu')
 ]
