@@ -14,9 +14,15 @@ def photos_manager(request):
     save and modify Photo with form model"""
     if request.method == 'POST':
         if request.is_ajax():
-            # response with add or modify form
-            form, hidden_input = return_form(request)
-            return HttpResponse(form.as_p() + hidden_input)
+            action = request.POST.get('action')
+            if action == "delete":
+                # delete actu
+                response = photo_request.delete(request)
+                return HttpResponse(response)
+            elif action == "display_form":
+                # response with add or modify form
+                form, hidden_input = return_form(request)
+                return HttpResponse(form.as_p() + hidden_input)
         # save and modify photo with form model
         photo_form = AddPhotoForm(request.POST or None, request.FILES or None)
         photo_id = request.POST.get('photo_id')
@@ -51,10 +57,3 @@ def photos_manager(request):
         "paginate": True,
     }
     return render(request, 'photomanagerapp/photos_manager.html', context)
-
-
-@login_required
-def delete_photo(request, pk):
-    """ delete actu """
-    photo_request.delete(request, pk)
-    return HttpResponse("Photo supprimée")

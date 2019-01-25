@@ -13,12 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path, re_path
+from django.urls import path  # , re_path
 from . import views
 
 urlpatterns = [
     path('', views.actus_manager, name='actus_manager'),
-    re_path(
-        r'^delete/(?P<pk>\d+)/$',
-        views.delete_actu, name='delete_actu')
 ]

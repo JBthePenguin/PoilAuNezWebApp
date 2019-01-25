@@ -32,9 +32,16 @@ def update(request, form, photo_id):
 
 
 @login_required
-def delete(request, pk):
+def delete(request):
     """ deletu photo in db """
-    photo = Photo.objects.get(pk=int(pk))
-    # delete image
-    default_storage.delete(photo.image)
-    photo.delete()
+    photo_id = request.POST.get('object_id')
+    try:
+        photo = Photo.objects.get(pk=photo_id)
+    except KeyError:
+        response = "KeyError for photo id"
+    else:
+        # delete image
+        default_storage.delete(photo.image)
+        photo.delete()
+        response = "Photo supprimée"
+    return response

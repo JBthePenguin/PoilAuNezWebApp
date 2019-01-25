@@ -1,4 +1,5 @@
 from django.db import models
+from managingapp.models import Manager
 
 
 class Video(models.Model):
@@ -6,4 +7,4 @@ class Video(models.Model):
     video = models.FileField(upload_to='videos')
     creating_date = models.DateTimeField(db_index=True, auto_now_add=True)
     change_date = models.DateTimeField(db_index=True, auto_now_add=True)
-    author = "Zek"
+    author = models.ForeignKey(Manager, default='', on_delete=models.CASCADE)

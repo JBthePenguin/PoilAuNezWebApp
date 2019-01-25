@@ -13,9 +13,15 @@ def actus_manager(request):
     save and modify Actu with form model"""
     if request.method == 'POST':
         if request.is_ajax():
-            # response with add or modify form
-            form, hidden_input = return_form(request)
-            return HttpResponse(form.as_p() + hidden_input)
+            action = request.POST.get('action')
+            if action == "delete":
+                # delete actu
+                response = actu_request.delete(request)
+                return HttpResponse(response)
+            elif action == "display_form":
+                # response with add or modify form
+                form, hidden_input = return_form(request)
+                return HttpResponse(form.as_p() + hidden_input)
         # save and modify actu with form model
         actu_form = ActuForm(request.POST or None, request.FILES or None)
         actu_id = request.POST.get('actu_id')
@@ -52,10 +58,3 @@ def actus_manager(request):
         "paginate": True,
     }
     return render(request, 'actumanagerapp/actus_manager.html', context)
-
-
-@login_required
-def delete_actu(request, pk):
-    """ delete actu """
-    actu_request.delete(request, pk)
-    return HttpResponse("Actu supprimée")

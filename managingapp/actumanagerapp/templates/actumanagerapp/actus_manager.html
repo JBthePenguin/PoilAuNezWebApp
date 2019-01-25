@@ -45,7 +45,7 @@
                                             <a href="#" onclick='DisplayForm("/manager/actus/", "{{ actu.id }}", "{{ csrf_token }}");'>Modifier</a>
                                         </div>
                                         <div class="col-lg-6 text-center">
-                                            <a href="#" onclick='DeleteConfirm("actus", {{ actu.id }});'>Supprimer</a>
+                                            <a href="#" onclick='DeleteConfirm("/manager/actus/", "{{ actu.id }}", "{{ csrf_token }}");'>Supprimer</a>
                                         </div>
                                     </div>
                                 </div>

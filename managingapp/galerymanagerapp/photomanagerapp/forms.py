@@ -11,6 +11,7 @@ class AddPhotoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AddPhotoForm, self).__init__(*args, **kwargs)
+        self.fields['image'].label = "Ajouter une photo"
         self.fields['title'].label = "Titre"
 
 

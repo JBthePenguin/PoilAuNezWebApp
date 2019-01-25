@@ -6,6 +6,7 @@ function DisplayForm(url, object_id, csrf_token) {
         type: 'POST',
         url: url,
         data: {
+            'action': 'display_form',
             'object_id': object_id,
             'csrfmiddlewaretoken': csrf_token
         },
@@ -30,13 +31,25 @@ function DisplayForm(url, object_id, csrf_token) {
     });
 }
 
-function DeleteConfirm(kind, object_id) {
+function DeleteConfirm(url, object_id, csrf_token) {
     r = confirm("Confirmer")
     if (r == true) {
-        url = "/manager/" + kind + "/delete/" + object_id;
-        $.get(url, function(data){
-            alert(data);
-            location.reload();
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+                'action': 'delete',
+                'object_id': object_id,
+                'csrfmiddlewaretoken': csrf_token
+            },
+            success: function (data) {
+                // append form to template html
+                alert(data);
+                location.reload();
+            },
+            error: function(xhr, status, e) {
+            alert(status, e);
+            }
         });
     }
 }

@@ -41,7 +41,7 @@
                                             <a href="#" onclick='DisplayForm("/manager/galery/photos/", "{{ photo.id }}", "{{ csrf_token }}");'>Modifier le titre</a>
                                         </div>
                                         <div class="col-lg-5">
-                                            <a href="#" onclick='DeleteConfirm("galery/photos", {{ photo.id }});'>Supprimer</a>
+                                            <a href="#" onclick='DeleteConfirm("/manager/galery/photos/", "{{ photo.id }}", "{{ csrf_token }}");'>Supprimer</a>
                                         </div>
                                     </div>
                                 </div>
