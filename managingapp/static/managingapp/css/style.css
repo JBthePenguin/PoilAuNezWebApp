@@ -73,9 +73,12 @@
   font-size: 18px;
 }
 
+#header_manager_message a:hover {
+  color: red;
+}
+
 #header_manager_actus .btn:hover, #header_manager_galery .btn:hover,
-#header_manager_photos .btn:hover, #header_manager_videos .btn:hover,
-#header_manager_message .btn:hover {
+#header_manager_photos .btn:hover, #header_manager_videos .btn:hover, {
   color: #ff9582;
 }
 

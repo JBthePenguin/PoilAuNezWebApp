@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from usingapp.contactapp.forms import ContactForm
-from .models import Message
+from usingapp.db_request import contact_request
 
 
 def contact(request):
@@ -12,15 +12,10 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             # save message in db
-            Message.objects.create(
-                contact_name=form.cleaned_data['contact_name'],
-                contact_email=form.cleaned_data['contact_email'],
-                subject=form.cleaned_data['subject'],
-                content=form.cleaned_data['content'],
-                status="send",
-            )
+            contact_request.save_message(form)
             send_msg = True
             form = ContactForm
+    # GET request
     context = {
         "contact_page": "active",
         'form': form,

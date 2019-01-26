@@ -30,7 +30,7 @@ class ManageVideoTests(Browser):
         self.assertEqual(header_title.text, "Vidéos")
         self.selenium.close()
         self.selenium.switch_to_window(default_handle)
-        # add actu with form
+        # add video with form
         self.selenium.find_element_by_link_text(
             'Ajouter une vidéo').click()
         self.selenium.find_element_by_id("id_video").send_keys(
@@ -40,7 +40,7 @@ class ManageVideoTests(Browser):
         self.selenium.find_element_by_id('btn-form-add-mod').click()
         card_titles = self.selenium.find_elements_by_tag_name("h6")
         self.assertEqual("test manage add title", card_titles[0].text)
-        # update actu with form
+        # update video with form
         update_links = self.selenium.find_elements_by_link_text(
             "Modifier le titre")
         update_links[1].click()
@@ -50,7 +50,7 @@ class ManageVideoTests(Browser):
         self.selenium.find_element_by_id('btn-form-add-mod').click()
         card_titles = self.selenium.find_elements_by_tag_name("h6")
         self.assertEqual("test manage update title", card_titles[0].text)
-        # delete actu
+        # delete video
         self.assertEqual("test manage add title", card_titles[1].text)
         delete_links = self.selenium.find_elements_by_link_text("Supprimer")
         delete_links[1].click()

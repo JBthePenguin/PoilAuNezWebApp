@@ -1,4 +1,5 @@
 from django.db import models
+from managingapp.models import Manager
 
 
 class Message(models.Model):
@@ -8,4 +9,5 @@ class Message(models.Model):
     content = models.TextField()
     date = models.DateTimeField(db_index=True, auto_now_add=True)
     status = models.CharField(db_index=True, max_length=255)
-    recipient = "Zek"
+    recipient = models.ForeignKey(
+        Manager, default='', on_delete=models.CASCADE)

@@ -18,7 +18,8 @@ class ActuForm(forms.ModelForm):
 
 @login_required
 def return_form(request):
-    """ select the add or modify form for actu and return it with ajax js"""
+    """ select the add or modify form for actu
+    and return response for ajax js"""
     actu_id = request.POST.get('object_id')
     if actu_id == 'add':
         # add form
