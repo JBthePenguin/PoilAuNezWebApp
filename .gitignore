@@ -1,5 +1,7 @@
 geckodriver.log
 
+poilaunezdjango/gdriveapikey.json
+
 env/
 
 uploads/actus/
@@ -13,6 +15,8 @@ poilaunezdjango/__pycache__/
 usingapp/__pycache__/
 
 usingapp/migrations/__pycache__/
+
+usingapp/db_request/__pycache__/
 
 usingapp/actuapp/__pycache__/
 
@@ -37,6 +41,8 @@ usingapp/contactapp/migrations/__pycache__/
 managingapp/__pycache__/
 
 managingapp/migrations/__pycache__/
+
+managingapp/db_request/__pycache__/
 
 managingapp/actumanagerapp/__pycache__/
 

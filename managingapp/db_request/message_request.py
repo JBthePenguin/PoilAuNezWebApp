@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.template.defaultfilters import linebreaks
 from usingapp.contactapp.models import Message
 
 
@@ -30,7 +31,7 @@ def return_message(request):
             "contact_email": message.contact_email,
             "date": message.date.strftime("%d/%m/%Y à %H:%M"),
             "subject": message.subject,
-            "content": message.content,
+            "content": linebreaks(message.content),
         }
         if message.status == "send":
             message.status = "lu"

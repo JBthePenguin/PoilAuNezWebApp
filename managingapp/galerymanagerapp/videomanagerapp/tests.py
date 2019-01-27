@@ -2,7 +2,7 @@ from poilaunezdjango.browser_selenium import Browser
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from managingapp.tests import login, logout
-from poilaunezdjango.settings import MEDIA_ROOT
+from poilaunezdjango.settings import BASE_DIR
 import time
 
 
@@ -34,10 +34,11 @@ class ManageVideoTests(Browser):
         self.selenium.find_element_by_link_text(
             'Ajouter une vidéo').click()
         self.selenium.find_element_by_id("id_video").send_keys(
-            "".join([MEDIA_ROOT, "/tests/videos/photo1.jpg"]))
+            "".join([BASE_DIR, "/uploads/tests/videos/photo1.jpg"]))
         self.selenium.find_element_by_id("id_title").send_keys(
             "test manage add title")
         self.selenium.find_element_by_id('btn-form-add-mod').click()
+        time.sleep(30)
         card_titles = self.selenium.find_elements_by_tag_name("h6")
         self.assertEqual("test manage add title", card_titles[0].text)
         # update video with form
@@ -48,6 +49,7 @@ class ManageVideoTests(Browser):
         self.selenium.find_element_by_id("id_title").send_keys(
             "test manage update title")
         self.selenium.find_element_by_id('btn-form-add-mod').click()
+        time.sleep(10)
         card_titles = self.selenium.find_elements_by_tag_name("h6")
         self.assertEqual("test manage update title", card_titles[0].text)
         # delete video
@@ -60,7 +62,7 @@ class ManageVideoTests(Browser):
         wait.until(EC.alert_is_present())
         alert = self.selenium.switch_to_alert()
         alert.accept()
-        time.sleep(2)
+        time.sleep(10)
         card_titles = self.selenium.find_elements_by_tag_name("h6")
         card_title_texts = []
         for card_title in card_titles:

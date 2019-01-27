@@ -19,7 +19,6 @@ def message_manager(request):
         elif action == "display_message":
             # response with message
             response = message_request.return_message(request)
-            print(response)
             return HttpResponse(
                 json.dumps(response), content_type="application/json")
     # GET

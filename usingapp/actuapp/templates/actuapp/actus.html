@@ -11,7 +11,7 @@
                 <p class="subheading text-left">Dernièrement ajoutée</p>
             </div>
             <!-- CARD -->
-            <div class="card col-lg-12">
+            <div class="card col-lg-9 mx-auto">
                 {% if actus is False %}
                     <div class="alert alert-warning">
                         Aucune actualité n'est enregistrée.<br>
@@ -21,10 +21,12 @@
         </div>
     </header>
                 {% else %}
-                    <img class="card-img-top" src="{{ actus.0.image.url }}" alt="image">
-                    <div class="card-body">
-                        <h4 class="card-title">{{ actus.0.title }}</h4>
-                        <p class="card-text text-left">{{ actus.0.text }}</p>
+                    <img class="card-img-top" src="{{ actus.0.display_url_img }}" alt="image">
+                    <div class="card-body text-left">
+                        <h4 class="card-title text-center">{{ actus.0.title }}</h4>
+                        <div class="card-text">
+                            {{ actus.0.text|linebreaks }}
+                        </div>
                         <p class="card-footer text-right">
                             <small>
                                 actualité {% if actus.0.change_date|date:'d/m/Y/ H:i' == actus.0.creating_date|date:'d/m/Y/ H:i' %} publiée {% else %} modifiée {% endif %} par {{ actus.0.author}} <small>le {{ actus.0.change_date }}</small>
@@ -42,7 +44,7 @@
                 <div class="card col-md-10">
                     <div class="row ">
                         <div class="col-md-3">
-                            <img class="w-100" src="{{ actu.image.url }}" alt"image">
+                            <img class="w-100" src="{{ actu.display_url_img }}" alt"image">
                         </div>
                         <div class="col-md-9">
                             <div class="card-block">
@@ -50,10 +52,12 @@
                                 <p class="card-text text-center">
                                     actualité {% if actu.change_date|date:'d/m/Y/ H:i' == actu.creating_date|date:'d/m/Y/ H:i' %} publiée {% else %} modifiée {% endif %} par {{ actu.author }} <small>le {{ actu.change_date }}</small>
                                 </p>
-                                <p class="card-text text-center">
-                                    {{ actu.text|truncatechars:50 }}<br>
-                                    <a onClick='DisplayActu("{{ actu.image.url }}", "{{ actu.title }}", "{{ actu.text }}", "{{ actu.author }}", "{{ actu.title }}","{{ actu.creating_date}}", "{{ actu.change_date}}");' href="#">lire la suite...</a>
-                                </p>
+                                <div class="card-text text-left">
+                                    {{ actu.text|linebreaks|truncatechars:50 }}
+                                </div>
+                                <div class="text-center">      
+                                    <a onClick='DisplayActu("{{ actu.display_url_img }}", "{{ actu.title }}", "{{ actu.text|linebreaks }}", "{{ actu.author }}", "{{ actu.title }}","{{ actu.creating_date}}", "{{ actu.change_date}}");' href="#">Afficher</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,5 +77,5 @@
             </nav>
         {% endif %}
     </main>
-{% endif %}
+                {% endif %}
 {% endblock %}

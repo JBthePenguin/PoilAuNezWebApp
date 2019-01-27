@@ -1,5 +1,5 @@
 """ Module for db request in Actu table"""
-from django.core.files.storage import default_storage
+import os
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from usingapp.galeryapp.videoapp.models import Video
@@ -12,6 +12,12 @@ def save(request, form):
     # add author
     video.author = request.user
     video.save()
+    if 'TRAVIS' not in os.environ:
+        # add display url for using with gdrive
+        code_video = video.video.url.split("/")[5]
+        video.display_url_video = "".join(
+            ["https://drive.google.com/uc?id=", code_video])
+        video.save()
 
 
 @login_required
@@ -40,8 +46,14 @@ def delete(request):
     except KeyError:
         response = "KeyError for video id"
     else:
-        # delete image
-        default_storage.delete(video.video)
+        if 'TRAVIS' not in os.environ:
+            from gdstorage.storage import GoogleDriveStorage
+            gd_storage = GoogleDriveStorage()
+            # delete video
+            gd_storage.delete(video.video.name)
+        else:
+            from django.core.files.storage import default_storage
+            default_storage.delete(video.video)
         video.delete()
         response = "Vidéo supprimée"
     return response

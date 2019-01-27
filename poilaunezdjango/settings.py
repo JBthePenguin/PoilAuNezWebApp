@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'captcha',
 ]
 
+if 'TRAVIS' not in os.environ:
+    INSTALLED_APPS.append('gdstorage')
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -141,8 +144,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 INTERNAL_IPS = ['127.0.0.1']
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
+
 # database for TravisCI
 if 'TRAVIS' in os.environ:
     DATABASES = {
@@ -155,8 +157,16 @@ if 'TRAVIS' in os.environ:
             'PORT': '',
         }
     }
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+    MEDIA_URL = '/uploads/'
+else:
+    # if you use the local directory uploads, comment the lines below
+    GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(
+        BASE_DIR, "poilaunezdjango/gdriveapikey.json")
+    # if you use the local directory uploads, uncomment the lines below
+    # MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+    # MEDIA_URL = '/uploads/'
 
 AUTH_USER_MODEL = 'managingapp.Manager'
 
 LOGIN_REDIRECT_URL = 'dashboard'
-# LOGOUT_REDIRECT_URL = ''

@@ -2,7 +2,7 @@ from poilaunezdjango.browser_selenium import Browser
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from managingapp.tests import login, logout
-from poilaunezdjango.settings import MEDIA_ROOT
+from poilaunezdjango.settings import BASE_DIR
 import time
 
 
@@ -33,12 +33,13 @@ class ManageActuTests(Browser):
         self.selenium.find_element_by_link_text(
             'Ajouter une actualité').click()
         self.selenium.find_element_by_id("id_image").send_keys(
-            "".join([MEDIA_ROOT, "/tests/actus/photo1.jpg"]))
+            "".join([BASE_DIR, "/uploads/tests/actus/photo1.jpg"]))
         self.selenium.find_element_by_id("id_title").send_keys(
             "test manage add title")
         self.selenium.find_element_by_id("id_text").send_keys(
             "test manage add text")
         self.selenium.find_element_by_id('btn-form-add-mod').click()
+        time.sleep(30)
         card_titles = self.selenium.find_elements_by_class_name('card-title')
         self.assertEqual("test manage add title", card_titles[0].text)
         # update actu with form
@@ -50,6 +51,7 @@ class ManageActuTests(Browser):
         self.selenium.find_element_by_id("id_title").send_keys(
             "test manage update title")
         self.selenium.find_element_by_id('btn-form-add-mod').click()
+        time.sleep(10)
         card_titles = self.selenium.find_elements_by_class_name('card-title')
         card_texts = self.selenium.find_elements_by_class_name('card-text')
         self.assertEqual("test manage update title", card_titles[0].text)
@@ -64,7 +66,7 @@ class ManageActuTests(Browser):
         wait.until(EC.alert_is_present())
         alert = self.selenium.switch_to_alert()
         alert.accept()
-        time.sleep(2)
+        time.sleep(10)
         card_titles = self.selenium.find_elements_by_class_name('card-title')
         card_titles_list = []
         for card_title in card_titles:

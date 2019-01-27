@@ -32,7 +32,7 @@ class BrowseVideoTests(Browser):
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//source[@src='/uploads/test/pag/test.mkv']"
+                    "//source[@src='test/pag/test.mkv']"
                 )
             )
         )

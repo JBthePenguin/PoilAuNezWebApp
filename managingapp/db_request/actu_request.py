@@ -1,5 +1,5 @@
 """ Module for db request in Actu table"""
-from django.core.files.storage import default_storage
+import os
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from usingapp.actuapp.models import Actu
@@ -12,6 +12,12 @@ def save(request, form):
     # add author
     actu.author = request.user
     actu.save()
+    if 'TRAVIS' not in os.environ:
+        # add display url for using with gdrive
+        code_img = actu.image.url.split("/")[5]
+        actu.display_url_img = "".join(
+            ["https://drive.google.com/uc?id=", code_img])
+        actu.save()
 
 
 @login_required
@@ -25,13 +31,26 @@ def update(request, form, actu_id):
         form.errors
         change_field = False
         if form.instance.image != "":
-            # storage new and delete old image
             form_image = request.FILES['image']
-            new_image = default_storage.save(
-                "".join(["actus/", form_image.name]),
-                form_image)
-            default_storage.delete(actu.image)
-            actu.image = new_image
+            if 'TRAVIS' not in os.environ:
+                from gdstorage.storage import GoogleDriveStorage
+                gd_storage = GoogleDriveStorage()
+                # storage new and delete old image
+                gd_storage.delete(actu.image.name)
+                actu.image = gd_storage.save(
+                    "".join(["actus/", form_image.name]),
+                    form_image)
+                actu.save()
+                code_img = actu.image.url.split("/")[5]
+                actu.display_url_img = "".join(
+                    ["https://drive.google.com/uc?id=", code_img])
+            else:
+                from django.core.files.storage import default_storage
+                new_image = default_storage.save(
+                    "".join(["actus/", form_image.name]),
+                    form_image)
+                default_storage.delete(actu.image)
+                actu.image = new_image
             change_field = True
         if actu.title != form.instance.title:
             # title
@@ -57,7 +76,13 @@ def delete(request):
         response = "KeyError for actu id"
     else:
         # delete image
-        default_storage.delete(actu.image)
+        if 'TRAVIS' not in os.environ:
+            from gdstorage.storage import GoogleDriveStorage
+            gd_storage = GoogleDriveStorage()
+            gd_storage.delete(actu.image.name)
+        else:
+            from django.core.files.storage import default_storage
+            default_storage.delete(actu.image)
         actu.delete()
         response = "Actu supprimée"
     return response

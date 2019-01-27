@@ -18,16 +18,16 @@ class BrowseActuTests(Browser):
         )
         self.assertEqual(last_actu_title.text, "actu test 6")
         # main part and display
-        actu_display_links = self.selenium.find_elements_by_css_selector(
-            "#main_actus .card-text a"
+        actu_display_links = self.selenium.find_elements_by_link_text(
+            "Afficher"
         )
         actu_display_links[1].click()
-        wait = WebDriverWait(self.selenium, 10)
+        wait = WebDriverWait(self.selenium, 30)
         wait.until(
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//img[@class='card-img-top' and @src='/uploads/test/display/actu1.png']"
+                    "//img[@class='card-img-top' and @src='test/display/actu1.png']"
                 )
             )
         )
@@ -48,7 +48,7 @@ class BrowseActuTests(Browser):
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//img[@class='w-100' and @src='/uploads/test/pag/actu1.png']"
+                    "//img[@class='w-100' and @src='test/pag/actu1.png']"
                 )
             )
         )

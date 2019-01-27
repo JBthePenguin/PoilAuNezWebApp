@@ -32,7 +32,7 @@ class BrowsePhotoTests(Browser):
             EC.presence_of_element_located(
                 (
                     By.XPATH,
-                    "//img[@src='/uploads/test/pag/test.png']"
+                    "//img[@src='test/pag/test.png']"
                 )
             )
         )

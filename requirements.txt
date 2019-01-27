@@ -6,6 +6,8 @@ django-fixture-magic
 
 django-simple-captcha
 
+django-googledrive-storage
+
 psycopg2
 
 psycopg2-binary

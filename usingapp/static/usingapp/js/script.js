@@ -21,7 +21,7 @@ function DisplayActu(img_url, title, text, author, title, creating_date, change_
   $(".subheading").remove();
   $("#header_actus .card img.card-img-top").replaceWith("<img class='card-img-top' src=" + img_url + ">");
   $("#header_actus .card h4.card-title").text(title);
-  $("#header_actus .card p.card-text").text(text);
+  $("#header_actus .card div.card-text").html(text);
   if (creating_date == change_date) {
     var word = "publiée";
   }

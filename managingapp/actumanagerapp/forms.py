@@ -11,7 +11,7 @@ class ActuForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ActuForm, self).__init__(*args, **kwargs)
-        self.fields['image'].label = "Ajouter une image"
+        self.fields['image'].label = "Image"
         self.fields['title'].label = "Titre"
         self.fields['text'].label = "Texte"
 

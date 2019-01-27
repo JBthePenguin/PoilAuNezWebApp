@@ -23,7 +23,7 @@
                     {% else %}                    
                         <p>{{ photos.0.title }}</p>
                     </div>
-                    <img class="card-img-bottom" src="{{ photos.0.image.url }}" alt="photo">
+                    <img class="card-img-bottom" src="{{ photos.0.display_url_img }}" alt="photo">
                     {% endif %}
             </div>
             <span class="col-lg-2"></span>
@@ -41,7 +41,7 @@
                     </div>
                     <div id="video-player" class="embed-responsive embed-responsive-16by9">
                         <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
-                            <source src="{{ videos.0.video.url }}" type="video/mp4" alt="videos">
+                            <source src="{{ videos.0.display_url_video }}" type="video/mp4" alt="videos">
                             <p class="alert">
                                 Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
                             </p>
@@ -75,7 +75,7 @@
                                 {% else %}
                                     <div class="carousel-item">
                                 {% endif %}
-                                    <img class="d-block mx-auto img-fluid" src="{{ photo.image.url }}" alt="photo">
+                                    <img class="d-block mx-auto img-fluid" src="{{ photo.display_url_img }}" alt="photo">
                                     <div class="carousel-caption d-none d-md-block">
                                         <p>{{ photo.title }}</p>
                                     </div>
@@ -110,7 +110,7 @@
                                 {% endif %}
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <video class="video-js .vjs-default-skin embed-responsive-item" controls preload="auto" data-setup="{}" poster="{% static 'usingapp/img/home-bg.jpg' %}">
-                                            <source src="{{ video.video.url }}" type="video/mp4" alt="videos">
+                                            <source src="{{ video.display_url_video }}" type="video/mp4" alt="videos">
                                             <p class="alert">
                                                 Votre navigateur ne supporte pas la balise vidéo ! Mettez-vous à jour !
                                             </p>
