@@ -157,15 +157,13 @@ if 'TRAVIS' in os.environ:
             'PORT': '',
         }
     }
+    # if you use the local directory uploads, unindent the lines below
     MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
     MEDIA_URL = '/uploads/'
 else:
     # if you use the local directory uploads, comment the lines below
     GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(
         BASE_DIR, "poilaunezdjango/gdriveapikey.json")
-    # if you use the local directory uploads, uncomment the lines below
-    # MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-    # MEDIA_URL = '/uploads/'
 
 AUTH_USER_MODEL = 'managingapp.Manager'
 

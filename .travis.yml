@@ -20,6 +20,15 @@ install:
 
 before_script:
   - psql -c 'create database travisci;' -U postgres
+  - rm -rf  usingapp/contactapp/migrations usingapp/actuapp/migrations
+  - mkdir usingapp/contactapp/migrations usingapp/actuapp/migrations
+  - touch usingapp/contactapp/migrations/__init__.py usingapp/actuapp/migrations/__init__.py
+  - rm -rf  usingapp/galeryapp/videoapp/migrations usingapp/galeryapp/photoapp/migrations
+  - mkdir usingapp/galeryapp/videoapp/migrations usingapp/galeryapp/photoapp/migrations
+  - touch usingapp/galeryapp/videoapp/migrations/__init__.py usingapp/galeryapp/photoapp/migrations/__init__.py
+  - rm -rf  managingapp/migrations
+  - mkdir managingapp/migrations
+  - touch managingapp/migrations/__init__.py
   - python manage.py makemigrations
   - python manage.py migrate
   - "export DISPLAY=:99.0"

@@ -23,7 +23,8 @@ def message_manager(request):
                 json.dumps(response), content_type="application/json")
     # GET
     # select messages for the manager logged
-    messages = Message.objects.filter(recipient=request.user)
+    messages = Message.objects.filter(
+        recipient=request.user).order_by("date").reverse()
     # pagination for header with messages
     if messages.count() == 0:
         messages_pag = False

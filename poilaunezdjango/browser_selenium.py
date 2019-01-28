@@ -9,6 +9,7 @@ class Browser(StaticLiveServerTestCase):
         'photo_fixtures.json',
         'video_fixtures.json',
         'manager_fixtures.json',
+        'msg_fixtures.json',
     ]
 
     @classmethod

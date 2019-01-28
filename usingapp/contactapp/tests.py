@@ -2,6 +2,7 @@ from poilaunezdjango.browser_selenium import Browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from usingapp.contactapp.models import Message
 from captcha.conf import settings
 
 
@@ -40,3 +41,10 @@ class BrowseContactTests(Browser):
         )
         send_msg = self.selenium.find_element_by_class_name("alert-warning")
         self.assertEqual(send_msg.text, "Votre Message a bien été envoyé.")
+        # check if message saved in db
+        message = Message.objects.get(subject="test")
+        self.assertEqual(message.contact_name, "testuser")
+        self.assertEqual(message.contact_email, "testuser@email.com")
+        self.assertEqual(message.content, "text test")
+        self.assertEqual(message.status, "send")
+        self.assertEqual(message.recipient.username, "testmanager")
