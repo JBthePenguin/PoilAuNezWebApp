@@ -69,16 +69,21 @@
         {% endif %}
     </div>
 </header>
+<div id="loading-part" class="container">
+    <div class="row">
+        <img  src="{% static 'managingapp/gif/loading.gif/' %}" class="mx-auto" width="15%">
+    </div>
+</div>
 <main id="form-part" class="container">
     <!--Form add or modify actu-->
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <form id="add-mod-form" role="form" action="" enctype="multipart/form-data" method="post">                   
+            <form id="add-mod-form" role="form" action="" enctype="multipart/form-data" method="post">                
                 {% csrf_token %}
                 <span id="form-ajax"></span>
                 <div class="row">
                     <div class="col-lg-6 text-center">
-                        <button id="btn-form-add-mod" class="btn btn-dark" type="submit"></button>
+                        <button id="btn-form-add-mod" class="btn btn-dark" type="submit" onclick=" $('#loading-part').show(); $('html, body').animate({scrollTop: $('#loading-part').offset().top }, 'slow');"></button>
                     </div>
                     <div class="col-lg-6 text-center">
                         <button id="btn-form-cancel" class="btn btn-dark" onclick="$('#form-part').hide();">Annuler</button>

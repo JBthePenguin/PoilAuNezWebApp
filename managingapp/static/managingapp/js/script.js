@@ -1,8 +1,14 @@
 $('#form-part').hide();
 $('#display-message').hide();
+$('#loading-part').hide();
 
 // Ajax request to choose and display the good form 
 function DisplayForm(url, object_id, csrf_token) {
+    $('#loading-part').show();
+    $('html, body').animate(
+        {scrollTop: $('#loading-part').offset().top },
+        'slow'
+    );
     $.ajax({
         type: 'POST',
         url: url,
@@ -20,6 +26,7 @@ function DisplayForm(url, object_id, csrf_token) {
             else {
                 $('#btn-form-add-mod').html('Modifier');
             }
+            $('#loading-part').hide();
             $('#form-part').show();
             $('html, body').animate(
                 {scrollTop: $('#form-part').offset().top },
@@ -27,6 +34,7 @@ function DisplayForm(url, object_id, csrf_token) {
             );
         },
         error: function(xhr, status, e) {
+            $('#loading-part').hide();
             alert(status, e);
         }
     });
@@ -65,6 +73,11 @@ function DisplayMessage(message_id, csrf_token) {
 function DeleteConfirm(url, object_id, csrf_token) {
     r = confirm("Confirmer")
     if (r == true) {
+        $('#loading-part').show();
+        $('html, body').animate(
+            {scrollTop: $('#loading-part').offset().top },
+            'slow'
+        );
         $.ajax({
             type: 'POST',
             url: url,
@@ -75,10 +88,12 @@ function DeleteConfirm(url, object_id, csrf_token) {
             },
             success: function (data) {
                 alert(data);
+                $('#loading-part').hide();
                 location.reload();
             },
             error: function(xhr, status, e) {
-            alert(status, e);
+                $('#loading-part').hide();
+                alert(status, e);
             }
         });
     }
