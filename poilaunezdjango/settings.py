@@ -24,7 +24,7 @@ SECRET_KEY = 'osu@j_s^ke&orsz3752(_7se5&+4$#(f(i^2+x!ydmhtorl$k-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

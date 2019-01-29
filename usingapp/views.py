@@ -11,3 +11,7 @@ def index(request):
 def mentions(request):
     """ return the page with legal mentions"""
     return render(request, 'usingapp/mentions.html')
+
+
+def error_404(request, exception):
+    return render(request, 'error/404.html', status=404)

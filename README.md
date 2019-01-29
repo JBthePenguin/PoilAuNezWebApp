@@ -55,3 +55,10 @@ If you want to use Chrome, install [ChromeWebDriver](http://chromedriver.chromiu
 ```python
 from selenium.webdriver.chrome.webdriver import WebDriver
 ```
+###### :metal: If you want access to the custom 'error 404' page, you have to set *DEBUG = False* in *settings.py line 26*, and run the server in insecure mode:
+```python
+DEBUG = False
+```
+```shell
+(env)$ python manage.py runserver --insecure
+```

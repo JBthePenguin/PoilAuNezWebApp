@@ -62,7 +62,6 @@
 
 #header_manager_actus .pag_link, #header_manager_message .pag_link,
 #header_manager_photos .pag_link, #header_manager_videos .pag_link,
-
 #header_manager_actus .btn, #header_manager_galery .btn,
 #header_manager_photos .btn, #header_manager_videos .btn,
 #header_manager_message .btn {
@@ -129,8 +128,12 @@
 }
 
 /*ADMIN MAIN*/
-#add-mod-form, #mod-actu-form, #add-photo-form,
-#mod-photo-form, #add-video-form, #mod-video-form, #display-message {
+
+#form-part, #display-message, #loading-part {
+  display: none;
+}
+
+#add-mod-form, #display-message {
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -140,23 +143,18 @@
   color: red;
 }
 
-#add-mod-form button, #mod-actu-form button, #add-photo-form button,
-#mod-photo-form button, #add-video-form button, #mod-video-form button,
-#display-message button {
+#add-mod-form button, #display-message button {
   color: white;
   border: 2px solid red;
   border-radius:7px;
   border-color: red;
 }
 
-#add-mod-form button:hover, #mod-actu-form button:hover,
-#add-photo-form button:hover, #mod-photo-form button:hover,
-#add-video-form button:hover, #mod-video-form button:hover,
-#display-message button:hover {
+#add-mod-form button:hover, #display-message button:hover {
   color: #ff9582;
 }
 
-#add-mod-form, #mod-actu-form {
+#add-mod-form {
   background-color: #898989;
   border: 1px solid black;
   border-radius:7px;
@@ -165,41 +163,7 @@
   padding: 7px;
 }
 
-/*DROPZONE*/
-.upload-drop-zone {
-  background-color: white;
-  height: 250px;
-  border-width: 2px;
-  margin-bottom: 20px;
-}
-
-.upload-drop-zone {
-  color: black;
-  border-style: dashed;
-  border-color: red;
-  line-height: 200px;
-  text-align: center
-}
-
-.upload-drop-zone.drop {
-  color: #222;
-  border-color: black;
-}
-
-#head-message, #text-message {
-  border: 1px solid red;
-  border-radius:7px;
-  margin-bottom: 5px;
-  background-color: #d1d0d9;
-}
-
-/*FORM*/
-#add-mod-form textarea, #add-mod-form input,
-#mod-actu-form form textarea, #mod-actu-form form input,
-#add-photo-form form textarea, #add-photo-form form input,
-#mod-photo-form form textarea, #mod-photo-form form input,
-#add-video-form form textarea, #add-video-form form input,
-#mod-video-form form textarea, #mod-video-form form input {
+#add-mod-form textarea, #add-mod-form input {
   border: 2.5px solid red;
   border-radius:7px;
   background-color: #d6d6d6;
@@ -209,4 +173,11 @@
 
 #add-mod-form #id_image {
   text-indent: 0px;
+}
+
+#head-message, #text-message {
+  border: 1px solid red;
+  border-radius:7px;
+  margin-bottom: 5px;
+  background-color: #d1d0d9;
 }

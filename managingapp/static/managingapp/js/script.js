@@ -1,7 +1,3 @@
-$('#form-part').hide();
-$('#display-message').hide();
-$('#loading-part').hide();
-
 // Ajax request to choose and display the good form 
 function DisplayForm(url, object_id, csrf_token) {
     $('#loading-part').show();
@@ -88,12 +84,11 @@ function DeleteConfirm(url, object_id, csrf_token) {
             },
             success: function (data) {
                 alert(data);
-                $('#loading-part').hide();
                 location.reload();
             },
             error: function(xhr, status, e) {
-                $('#loading-part').hide();
                 alert(status, e);
+                $('#loading-part').hide();
             }
         });
     }

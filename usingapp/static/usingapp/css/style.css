@@ -363,6 +363,10 @@ main .card {
   padding-right: 31%;
 }
 
+#main_index a {
+  color: red;
+}
+
 #main_actus .card img, #main_galery .card .carousel {
   padding-top: 2%;
   padding-bottom: 2%;

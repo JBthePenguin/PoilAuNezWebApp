@@ -17,6 +17,8 @@ import os
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, re_path, include
+from django.conf.urls import handler404
+from usingapp import views
 # if you use the local directory uploads, uncomment the lines below
 # from django.contrib.staticfiles.urls import static
 # from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -47,3 +49,5 @@ if 'TRAVIS' in os.environ:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = views.error_404
