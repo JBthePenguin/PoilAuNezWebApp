@@ -4,6 +4,8 @@ django-debug-toolbar
 
 django-fixture-magic
 
+django-multi-captcha-admin
+
 django-simple-captcha
 
 django-googledrive-storage
