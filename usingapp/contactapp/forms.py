@@ -19,3 +19,4 @@ class ContactForm(forms.ModelForm):
         self.fields['contact_email'].label = "Votre email:"
         self.fields['subject'].label = "Objet du message:"
         self.fields['content'].label = "Votre message:"
+        self.fields['content'].widget.attrs.update({'cols': '50'})

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/JBthePenguin/PoilAuNezWebApp.svg?branch=master)](https://travis-ci.com/JBthePenguin/PoilAuNezWebApp)
 ## Poil au Nez Web Application  *Django*
 **This is a website like a blog with an interface admin to manage it. It's a [Django](https://www.djangoproject.com) Web application for the company of clown theater 'Poil au Nez'.
 It use [Google Drive API](https://developers.google.com/drive/) to store the medias, so you have to create, in the folder *poilaunezdjango*, a file *gdriveapikey.json* with your private API Key.** (see *readme.txt* in the folder *uploads* for a local storage)

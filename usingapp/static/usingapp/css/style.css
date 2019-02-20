@@ -358,11 +358,11 @@ main .card {
   padding-right: 19%;
 }
 
-#main_index .card #magical_img {
+/*#main_index .card #magical_img {
   padding-left: 31%;
   padding-right: 31%;
 }
-
+*/
 #main_index a {
   color: red;
 }

@@ -98,7 +98,7 @@ class BrowseBaseTests(Browser):
         # link Photos
         hover = ActionChains(self.selenium).move_to_element(nav_links[2])
         hover.perform()
-        wait = WebDriverWait(self.selenium, 10)
+        wait = WebDriverWait(self.selenium, 20)
         wait.until(
             EC.visibility_of_element_located(
                 (By.CLASS_NAME, "dropdown-item")
@@ -116,7 +116,7 @@ class BrowseBaseTests(Browser):
         # link Videos
         hover = ActionChains(self.selenium).move_to_element(nav_links[2])
         hover.perform()
-        wait = WebDriverWait(self.selenium, 10)
+        wait = WebDriverWait(self.selenium, 20)
         wait.until(
             EC.visibility_of_element_located(
                 (By.CLASS_NAME, "dropdown-item")
